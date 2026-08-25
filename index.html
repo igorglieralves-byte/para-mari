@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Para a Mari ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <button class="botao-noite" onclick="modoNoite()">
+    <button class="botao-noite" onclick="modoNoite()" aria-label="Mudar modo">
         🌙
     </button>
 
@@ -24,19 +26,33 @@
 
         <div class="botoes">
 
-            <button onclick="mostrar('saudade')">🫂 Estou com saudade</button>
+            <button onclick="mostrar('saudade')">
+                🫂 Estou com saudade
+            </button>
 
-            <button onclick="mostrar('triste')">😔 Estou triste</button>
+            <button onclick="mostrar('triste')">
+                😔 Estou triste
+            </button>
 
-            <button onclick="mostrar('sorriso')">😂 Me faça sorrir</button>
+            <button onclick="mostrar('sorriso')">
+                😂 Me faça sorrir
+            </button>
 
-            <button onclick="mostrar('especial')">❤️ Uma coisa sobre você</button>
+            <button onclick="mostrar('especial')">
+                ❤️ Uma coisa sobre você
+            </button>
 
-            <button onclick="mostrar('oracao')">🙏 Nosso momento com Deus</button>
+            <button onclick="mostrar('oracao')">
+                🙏 Nosso momento com Deus
+            </button>
 
-            <button onclick="mostrarEnvelope()">💌 Abrir minha carta</button>
+            <button onclick="mostrarEnvelope()">
+                💌 Abrir minha carta
+            </button>
 
-            <button onclick="surpresa()">🎁 NÃO clique aqui</button>
+            <button onclick="surpresa()">
+                🎁 NÃO clique aqui
+            </button>
 
         </div>
 
@@ -44,7 +60,6 @@
             Escolha alguma coisa acima... 👀❤️
         </div>
 
-        <!-- ENVELOPE -->
         <div id="area-envelope" class="area-envelope">
 
             <p class="instrucao-envelope">
@@ -69,7 +84,6 @@
 
         </div>
 
-        <!-- CARTA ORIGINAL -->
         <div id="carta" class="carta">
 
             <h2>💌 Para você, Mari</h2>
