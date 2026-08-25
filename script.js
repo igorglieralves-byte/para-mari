@@ -38,28 +38,66 @@ function mostrar(tipo) {
     }
 
     criarCoracoes();
+}
 
+
+function mostrarEnvelope() {
+
+    const areaEnvelope =
+        document.getElementById("area-envelope");
+
+    const carta =
+        document.getElementById("carta");
+
+    areaEnvelope.style.display = "block";
+
+    carta.style.display = "none";
+
+    areaEnvelope.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    criarCoracoes();
 }
 
 
 function abrirCarta() {
 
-    const carta = document.getElementById("carta");
+    const envelope =
+        document.querySelector(".envelope");
 
-    carta.style.display = "block";
+    const areaEnvelope =
+        document.getElementById("area-envelope");
 
-    carta.scrollIntoView({
-        behavior: "smooth"
-    });
+    const carta =
+        document.getElementById("carta");
+
+    envelope.classList.add("aberto");
 
     criarCoracoes();
 
+    setTimeout(function () {
+
+        areaEnvelope.style.display = "none";
+
+        carta.style.display = "block";
+
+        carta.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+        criarCoracoes();
+
+    }, 900);
 }
 
 
 function surpresa() {
 
-    const surpresa = document.getElementById("surpresa");
+    const surpresa =
+        document.getElementById("surpresa");
 
     surpresa.style.display = "block";
 
@@ -68,7 +106,6 @@ function surpresa() {
     });
 
     criarCoracoes();
-
 }
 
 
@@ -87,13 +124,16 @@ function criarCoracoes() {
 
     for (let i = 0; i < 18; i++) {
 
-        const coracao = document.createElement("div");
+        const coracao =
+            document.createElement("div");
 
         coracao.className = "coracao";
 
         coracao.innerText =
             simbolos[
-                Math.floor(Math.random() * simbolos.length)
+                Math.floor(
+                    Math.random() * simbolos.length
+                )
             ];
 
         coracao.style.left =
@@ -113,24 +153,19 @@ function criarCoracoes() {
 
         document.body.appendChild(coracao);
 
-        setTimeout(() => {
-
+        setTimeout(function () {
             coracao.remove();
-
         }, 8000);
-
     }
-
 }
 
-
-/* MODO NOITE */
 
 function modoNoite() {
 
     const corpo = document.body;
 
-    const botao = document.querySelector(".botao-noite");
+    const botao =
+        document.querySelector(".botao-noite");
 
     corpo.classList.toggle("modo-noite");
 
@@ -143,5 +178,4 @@ function modoNoite() {
         botao.innerText = "🌙";
 
     }
-
 }
