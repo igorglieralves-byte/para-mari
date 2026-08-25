@@ -8,130 +8,54 @@ function mostrar(tipo) {
 
     mensagem.classList.add("mensagemAnimada");
 
+
     if (tipo === "saudade") {
 
-        mensagem.innerHTML = `
-            <div class="iconeMensagem">🫂</div>
-
-            <strong>Eu também estou com saudade... ❤️</strong>
-
-            <br><br>
-
-            Imagina que eu estou aí agora,
-            te dando aquele abraço apertado
-            que a distância não deixa eu te dar.
-
-            <br><br>
-
-            🫂❤️
-        `;
+        mensagem.innerText =
+        "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
 
         efeitoSaudade();
     }
 
+
     if (tipo === "triste") {
 
-        mensagem.innerHTML = `
-            <div class="iconeMensagem">😔</div>
-
-            <strong>Ei... fica bem. ❤️</strong>
-
-            <br><br>
-
-            Se hoje estiver difícil,
-            respira um pouquinho.
-
-            <br><br>
-
-            Você não precisa estar bem
-            o tempo todo.
-
-            <br><br>
-
-            Estou torcendo para você sorrir novamente. 🥹❤️
-        `;
+        mensagem.innerText =
+        "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
 
         efeitoSuave();
     }
 
+
     if (tipo === "sorriso") {
 
-        mensagem.innerHTML = `
-            <div class="iconeMensagem">😂</div>
-
-            <strong>VOCÊ CLICOU MESMO KKKKKKK</strong>
-
-            <br><br>
-
-            Pronto.
-
-            <br><br>
-
-            Agora você é oficialmente
-            obrigada a sorrir. 😂
-
-            <br><br>
-
-            Não fui eu que inventei a regra. 🤷‍♂️😂
-        `;
+        mensagem.innerText =
+        "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
 
         efeitoSorriso();
     }
 
+
     if (tipo === "especial") {
 
-        mensagem.innerHTML = `
-            <div class="iconeMensagem">❤️</div>
-
-            <strong>Uma coisa sobre você...</strong>
-
-            <br><br>
-
-            Você tem um jeito de tornar
-            até uma conversa simples
-            em alguma coisa especial.
-
-            <br><br>
-
-            E mesmo estando longe,
-            você conseguiu se tornar
-            uma pessoa muito importante para mim.
-
-            <br><br>
-
-            ❤️🥹❤️
-        `;
+        mensagem.innerText =
+        "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
 
         efeitoEspecial();
     }
 
+
     if (tipo === "oracao") {
 
-        mensagem.innerHTML = `
-            <div class="iconeMensagem">🙏</div>
-
-            <strong>Nosso momento com Deus</strong>
-
-            <br><br>
-
-            Que Jesus cuide de nós,
-            da nossa caminhada
-            e principalmente de você.
-
-            <br><br>
-
-            Que Nossa Senhora te cubra
-            com seu manto e te proteja sempre.
-
-            <br><br>
-
-            🙏✨❤️
-        `;
+        mensagem.innerText =
+        "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
 
         efeitoOracao();
     }
 }
 
+
+/* CARTA */
 
 function abrirCarta() {
 
@@ -146,6 +70,8 @@ function abrirCarta() {
     criarCoracoes();
 }
 
+
+/* SURPRESA */
 
 function surpresa() {
 
@@ -163,6 +89,7 @@ function surpresa() {
 
     chuvaDeCoracoes();
 
+
     setTimeout(() => {
 
         surpresaBox.innerHTML = `
@@ -173,6 +100,7 @@ function surpresa() {
         `;
 
     }, 300);
+
 
     setTimeout(() => {
 
@@ -191,6 +119,7 @@ function surpresa() {
         `;
 
     }, 1800);
+
 
     setTimeout(() => {
 
@@ -213,6 +142,7 @@ function surpresa() {
         `;
 
     }, 3300);
+
 
     setTimeout(() => {
 
@@ -248,6 +178,7 @@ function surpresa() {
 
     }, 4800);
 
+
     setTimeout(() => {
 
         surpresaBox.scrollIntoView({
@@ -259,7 +190,7 @@ function surpresa() {
 }
 
 
-/* EFEITOS DAS MENSAGENS */
+/* EFEITOS DOS BOTÕES */
 
 function efeitoSaudade() {
 
@@ -327,7 +258,7 @@ function efeitoOracao() {
 }
 
 
-/* CRIA CORAÇÃO */
+/* CORAÇÕES */
 
 function criarCoracoes() {
 
@@ -392,6 +323,8 @@ function criarCoracaoGrande() {
 
     coracao.style.left =
         Math.random() * 100 + "vw";
+
+    coracao.style.fontSize = "40px";
 
     document.body.appendChild(coracao);
 
