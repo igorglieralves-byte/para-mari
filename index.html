@@ -14,8 +14,12 @@
 
     <!-- TELA DE ENTRADA -->
     <div id="telaEntrada" class="tela-entrada">
+
         <div class="entrada-conteudo">
-            <div class="entrada-coracao">❤️</div>
+
+            <div class="entrada-coracao">
+                ❤️
+            </div>
 
             <h2>Tenho uma coisinha para você...</h2>
 
@@ -26,12 +30,18 @@
             <button onclick="entrarNoSite()">
                 Abrir ❤️
             </button>
+
         </div>
+
     </div>
 
 
-    <!-- BOTÃO MODO NOITE -->
-    <button class="botao-noite" onclick="modoNoite()" aria-label="Mudar modo">
+    <!-- MODO NOITE -->
+
+    <button
+        class="botao-noite"
+        onclick="modoNoite()"
+        aria-label="Mudar modo">
         🌙
     </button>
 
@@ -45,7 +55,7 @@
         </p>
 
 
-        <!-- BOTÕES -->
+        <!-- BOTÕES ANTIGOS -->
 
         <div class="botoes">
 
@@ -77,6 +87,33 @@
                 🎁 NÃO clique aqui
             </button>
 
+
+            <!-- NOVOS -->
+
+            <button onclick="motivos()">
+                💖 Motivos para gostar de você
+            </button>
+
+            <button onclick="jardimTulipas()">
+                🌷 Faça florescer
+            </button>
+
+            <button onclick="abraco()">
+                🫂 Preciso de um abraço
+            </button>
+
+            <button onclick="ceuEstrelado()">
+                🌌 Olhe para o céu
+            </button>
+
+            <button onclick="segredo()">
+                🔐 Tem um segredo aqui...
+            </button>
+
+            <button onclick="nuncaFalei()">
+                💭 Uma coisa que eu nunca te falei...
+            </button>
+
         </div>
 
 
@@ -84,6 +121,19 @@
 
         <div id="mensagem" class="mensagem">
             Escolha alguma coisa acima... 👀❤️
+        </div>
+
+
+        <!-- JARDIM -->
+
+        <div id="jardim" class="jardim">
+
+            <div class="jardim-titulo">
+                🌷 Um pequeno jardim para você 🌷
+            </div>
+
+            <div id="flores" class="flores"></div>
+
         </div>
 
 
@@ -95,7 +145,9 @@
                 Tem uma carta aqui para você... 💌
             </p>
 
-            <div class="envelope" onclick="abrirCarta()">
+            <div
+                class="envelope"
+                onclick="abrirCarta()">
 
                 <div class="papel-carta">
                     💌
@@ -155,11 +207,42 @@
 
         <!-- SURPRESA -->
 
-        <div id="surpresa" class="surpresa">
+        <div
+            id="surpresa"
+            class="surpresa">
 
             <div id="surpresaTexto"></div>
 
         </div>
+
+
+        <!-- CÉU -->
+
+        <div
+            id="ceu"
+            class="ceu">
+
+            <div id="estrelas"></div>
+
+            <div class="mensagem-ceu">
+                Às vezes eu olho para o céu<br>
+                e penso que, mesmo tão longe,<br>
+                estamos olhando para o mesmo céu. ❤️
+            </div>
+
+        </div>
+
+
+        <!-- SEGREDO -->
+
+        <div
+            id="segredo"
+            class="segredo">
+
+            <div id="segredoTexto"></div>
+
+        </div>
+
 
     </main>
 
