@@ -9,189 +9,101 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-
     color: white;
     text-align: center;
-
     overflow-x: hidden;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 100, 190, 0.35),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(150, 100, 255, 0.30),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(255, 80, 180, 0.30),
-            transparent 30%
-        ),
-        linear-gradient(
-            160deg,
-            #120820,
-            #291039,
-            #59184d,
-            #962d63
-        );
+        radial-gradient(circle at 20% 20%, rgba(255,100,190,0.35), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(150,100,255,0.30), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(255,80,180,0.30), transparent 30%),
+        linear-gradient(160deg, #120820, #291039, #59184d, #962d63);
 
-    background-size:
-        180% 180%;
-
-    animation:
-        fundoVivo 15s ease-in-out infinite alternate;
-
+    background-size: 180% 180%;
+    animation: fundoVivo 15s ease-in-out infinite alternate;
     background-attachment: fixed;
 }
 
-
-/* FUNDO SE MOVENDO */
-
 @keyframes fundoVivo {
-
     0% {
-        background-position:
-            0% 0%;
+        background-position: 0% 0%;
     }
 
     50% {
-        background-position:
-            100% 50%;
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position:
-            0% 100%;
+        background-position: 0% 100%;
     }
 }
 
-
-/* LUZES DO FUNDO */
-
 body::before {
-
     content: "";
-
     position: fixed;
-
     width: 500px;
     height: 500px;
-
     top: -200px;
     left: -150px;
-
     border-radius: 50%;
-
-    background:
-        rgba(255, 100, 190, 0.20);
-
-    filter:
-        blur(100px);
-
+    background: rgba(255,100,190,0.20);
+    filter: blur(100px);
     pointer-events: none;
-
-    animation:
-        luzFlutuando 9s ease-in-out infinite alternate;
+    animation: luzFlutuando 9s ease-in-out infinite alternate;
 }
 
 @keyframes luzFlutuando {
-
     from {
-        transform:
-            translate(0,0)
-            scale(1);
+        transform: translate(0,0) scale(1);
     }
 
     to {
-        transform:
-            translate(250px,180px)
-            scale(1.3);
+        transform: translate(250px,180px) scale(1.3);
     }
 }
 
-
-/* ESTRELAS */
-
 body::after {
-
     content:
         "✦   ·   ✧      ⋆      ·      ✦      ✧      ·      ⋆
          ·      ✦      ·      ✧      ⋆      ·      ✦
          ⋆      ·      ✧      ·      ✦      ⋆      ·";
 
     position: fixed;
-
     inset: 0;
-
     padding: 10px;
-
     font-size: 18px;
-
     line-height: 90px;
-
     letter-spacing: 20px;
-
     white-space: pre-wrap;
-
     opacity: 0.20;
-
     pointer-events: none;
-
-    animation:
-        estrelasVivas 8s ease-in-out infinite alternate;
+    animation: estrelasVivas 8s ease-in-out infinite alternate;
 }
 
 @keyframes estrelasVivas {
-
     from {
-
         opacity: 0.12;
-
-        transform:
-            translateY(10px);
+        transform: translateY(10px);
     }
 
     to {
-
         opacity: 0.40;
-
-        transform:
-            translateY(-15px);
+        transform: translateY(-15px);
     }
 }
 
-
-/* CONTAINER */
-
 .container {
-
     position: relative;
-
     z-index: 2;
-
     max-width: 850px;
-
     margin: auto;
-
-    padding:
-        70px 20px 60px;
+    padding: 70px 20px 60px;
 }
 
-
-/* TÍTULO */
-
 h1 {
-
     font-size: 55px;
-
-    margin:
-        0 0 12px;
+    margin: 0 0 12px;
 
     text-shadow:
         0 0 10px rgba(255,170,220,0.9),
@@ -203,31 +115,19 @@ h1 {
         tituloRespira 4s ease-in-out 1.3s infinite;
 }
 
-
 @keyframes tituloEntrada {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(-40px)
-            scale(0.85);
+        transform: translateY(-40px) scale(0.85);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-
 @keyframes tituloRespira {
-
     0% {
         text-shadow:
             0 0 10px rgba(255,170,220,0.8),
@@ -247,82 +147,50 @@ h1 {
     }
 }
 
-
-/* SUBTÍTULO */
-
 .subtitulo {
-
     font-size: 20px;
-
     margin-bottom: 45px;
-
     color: #ffeaf6;
 
     text-shadow:
         0 3px 10px rgba(0,0,0,0.25);
 
-    animation:
-        subtituloEntrada 1.6s ease;
+    animation: subtituloEntrada 1.6s ease;
 }
 
-
 @keyframes subtituloEntrada {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(-20px);
+        transform: translateY(-20px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 }
 
-
-/* BOTÕES */
-
 .botoes {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
-
     max-width: 720px;
-
     margin: auto;
 }
 
-
 button {
-
     position: relative;
-
     min-height: 125px;
 
-    border:
-        1px solid rgba(255,255,255,0.25);
-
+    border: 1px solid rgba(255,255,255,0.25);
     border-radius: 28px;
 
-    padding:
-        25px 15px;
+    padding: 25px 15px;
 
     font-size: 18px;
-
     font-weight: bold;
 
     cursor: pointer;
-
     color: white;
 
     background:
@@ -332,11 +200,8 @@ button {
             rgba(255,255,255,0.06)
         );
 
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
     box-shadow:
         0 12px 35px rgba(0,0,0,0.28),
@@ -355,9 +220,6 @@ button {
         botaoEntrada 0.8s ease forwards,
         botaoRespira 4s ease-in-out infinite;
 }
-
-
-/* ENTRADA UM POR UM */
 
 button:nth-child(1) {
     animation-delay: 0.3s, 1.5s;
@@ -387,70 +249,40 @@ button:nth-child(7) {
     animation-delay: 1.5s, 2.7s;
 }
 
-
 @keyframes botaoEntrada {
-
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(35px)
-            scale(0.92);
+        transform: translateY(35px) scale(0.92);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-
-/* BOTÃO RESPIRANDO */
-
 @keyframes botaoRespira {
-
     0% {
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 
     50% {
-
-        transform:
-            translateY(-3px)
-            scale(1.008);
+        transform: translateY(-3px) scale(1.008);
     }
 
     100% {
-
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-
-/* BRILHO PASSANDO */
-
 button::before {
-
     content: "";
 
     position: absolute;
-
     top: 0;
-
     left: -120%;
 
     width: 70%;
-
     height: 100%;
 
     background:
@@ -461,29 +293,19 @@ button::before {
             transparent
         );
 
-    transform:
-        skewX(-20deg);
+    transform: skewX(-20deg);
 
-    transition:
-        left 0.7s ease;
+    transition: left 0.7s ease;
 
     pointer-events: none;
 }
 
-
 button:hover::before {
-
     left: 150%;
 }
 
-
-/* HOVER */
-
 button:hover {
-
-    transform:
-        translateY(-8px)
-        scale(1.04);
+    transform: translateY(-8px) scale(1.04);
 
     background:
         linear-gradient(
@@ -497,170 +319,160 @@ button:hover {
         0 0 30px rgba(255,120,200,0.22);
 }
 
-
-/* CLIQUE */
-
 button:active {
-
-    transform:
-        scale(0.95);
-
-    transition:
-        0.1s;
+    transform: scale(0.95);
 }
-
-
-/* ORGANIZAÇÃO */
 
 .botoes button:nth-child(5) {
+    grid-column: 1 / 3;
+    max-width: 350px;
+    width: 100%;
+    justify-self: center;
+}
 
-    grid-column:
-        1 / 3;
+.botoes button:nth-child(6) {
+    grid-column: 1 / 3;
+    max-width: 450px;
+    width: 100%;
+    justify-self: center;
+    min-height: 80px;
+    font-size: 20px;
+}
 
-    max-width:
-        350px;
+.botoes button:nth-child(7) {
+    grid-column: 1 / 3;
+    max-width: 350px;
+    width: 100%;
+    justify-self: center;
+    min-height: 70px;
+    opacity: 0.75;
+    font-size: 16px;
+}
 
-    width:
-        100%;
-
-    justify-self:
-        center;
+.botoes button:nth-child(7):hover {
+    opacity: 1;
+    transform: rotate(-1deg) scale(1.03);
 }
 
 
-.botoes button:nth-child(6) {
+/* ========================= */
+/* TELEPORTE DA MENSAGEM */
+/* ========================= */
 
-    grid-column:
-        1 / 3;
+.mensagem {
+    position: fixed;
 
-    max-width:
-        450px;
+    top: 50%;
+    left: 50%;
 
-    width:
-        100%;
+    transform:
+        translate(-50%, -50%)
+        scale(0.75);
 
-    justify-self:
-        center;
+    width: calc(100% - 40px);
+    max-width: 650px;
 
-    min-height:
-        80px;
+    max-height: 75vh;
 
-    font-size:
-        20px;
+    overflow-y: auto;
+
+    margin: 0;
+
+    padding: 30px;
+
+    z-index: 100;
+
+    border-radius: 28px;
+
+    font-size: 19px;
+    line-height: 1.7;
+
+    color: white;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(255,160,210,0.25),
-            rgba(255,255,255,0.12)
+            145deg,
+            rgba(255,255,255,0.20),
+            rgba(255,255,255,0.08)
         );
-}
-
-
-.botoes button:nth-child(7) {
-
-    grid-column:
-        1 / 3;
-
-    max-width:
-        350px;
-
-    width:
-        100%;
-
-    justify-self:
-        center;
-
-    min-height:
-        70px;
-
-    opacity:
-        0.75;
-
-    font-size:
-        16px;
-}
-
-
-.botoes button:nth-child(7):hover {
-
-    opacity:
-        1;
-
-    transform:
-        rotate(-1deg)
-        scale(1.03);
-}
-
-
-/* MENSAGEM */
-
-.mensagem {
-
-    margin:
-        35px auto;
-
-    max-width:
-        680px;
-
-    min-height:
-        90px;
-
-    padding:
-        28px;
-
-    border-radius:
-        26px;
-
-    font-size:
-        19px;
-
-    line-height:
-        1.7;
-
-    background:
-        rgba(255,255,255,0.12);
 
     border:
-        1px solid rgba(255,255,255,0.22);
+        1px solid rgba(255,255,255,0.35);
 
-    backdrop-filter:
-        blur(15px);
-
-    -webkit-backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,0.25);
+        0 25px 70px rgba(0,0,0,0.50),
+        0 0 40px rgba(255,100,190,0.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.35s ease;
 }
 
+
+/* ESCURECE O FUNDO */
+
+.mensagem::after {
+    content: "";
+
+    position: fixed;
+
+    inset: -100vh;
+
+    z-index: -1;
+
+    background:
+        rgba(5,0,10,0.48);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* MENSAGEM APARECENDO */
 
 .mensagemAnimada {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    pointer-events: auto;
 
     animation:
-        mensagemEntrando 0.5s ease;
+        teleporte 0.45s ease;
 }
 
+@keyframes teleporte {
 
-@keyframes mensagemEntrando {
-
-    from {
-
-        opacity:
-            0;
+    0% {
+        opacity: 0;
 
         transform:
-            translateY(15px)
-            scale(0.97);
+            translate(-50%, -50%)
+            scale(0.65);
     }
 
-    to {
-
-        opacity:
-            1;
+    60% {
+        opacity: 1;
 
         transform:
-            translateY(0)
+            translate(-50%, -50%)
+            scale(1.06);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
             scale(1);
     }
 }
@@ -669,33 +481,23 @@ button:active {
 /* CARTA */
 
 .carta {
+    display: none;
 
-    display:
-        none;
+    position: relative;
 
-    position:
-        relative;
+    max-width: 700px;
 
-    max-width:
-        700px;
+    margin: 45px auto;
 
-    margin:
-        45px auto;
+    padding: 45px 40px;
 
-    padding:
-        45px 40px;
+    border-radius: 30px;
 
-    border-radius:
-        30px;
+    text-align: left;
 
-    text-align:
-        left;
+    line-height: 1.9;
 
-    line-height:
-        1.9;
-
-    color:
-        #5a2638;
+    color: #5a2638;
 
     background:
         linear-gradient(
@@ -707,113 +509,71 @@ button:active {
     box-shadow:
         0 25px 60px rgba(0,0,0,0.40);
 
-    border:
-        1px solid rgba(255,255,255,0.8);
-
     animation:
         cartaAbrindo 1s ease;
 }
 
-
 .carta::before {
+    content: "❤️";
 
-    content:
-        "❤️";
+    position: absolute;
 
-    position:
-        absolute;
-
-    top:
-        -18px;
-
-    left:
-        50%;
+    top: -18px;
+    left: 50%;
 
     transform:
         translateX(-50%);
 
-    font-size:
-        30px;
-
-    filter:
-        drop-shadow(
-            0 0 10px rgba(255,70,150,0.7)
-        );
+    font-size: 30px;
 
     animation:
         coracaoCarta 2s ease-in-out infinite;
 }
 
-
 .carta h2 {
+    text-align: center;
 
-    text-align:
-        center;
+    color: #9b315e;
 
-    color:
-        #9b315e;
+    margin-top: 5px;
+    margin-bottom: 30px;
 
-    margin-top:
-        5px;
-
-    margin-bottom:
-        30px;
-
-    font-size:
-        30px;
+    font-size: 30px;
 }
-
 
 .carta p {
-
-    margin:
-        0 0 20px;
+    margin: 0 0 20px;
 }
 
-
 .carta strong {
+    display: block;
 
-    display:
-        block;
+    text-align: right;
 
-    text-align:
-        right;
+    margin-top: 25px;
 
-    margin-top:
-        25px;
+    font-size: 21px;
 
-    font-size:
-        21px;
-
-    color:
-        #9b315e;
+    color: #9b315e;
 }
 
 
 /* SURPRESA */
 
 .surpresa {
+    display: none;
 
-    display:
-        none;
+    margin: 35px auto;
 
-    margin:
-        35px auto;
+    padding: 35px;
 
-    padding:
-        35px;
+    max-width: 700px;
 
-    max-width:
-        700px;
+    border-radius: 28px;
 
-    border-radius:
-        28px;
+    font-size: 22px;
 
-    font-size:
-        22px;
-
-    line-height:
-        1.6;
+    line-height: 1.6;
 
     background:
         rgba(255,255,255,0.14);
@@ -821,37 +581,25 @@ button:active {
     border:
         1px solid rgba(255,255,255,0.25);
 
-    backdrop-filter:
-        blur(15px);
-
-    -webkit-backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,0.3);
 }
 
-
 .surpresaTexto {
-
     animation:
         surpresaEntrada 0.7s ease;
 }
 
-
 .mensagemFinal {
+    display: inline-block;
 
-    display:
-        inline-block;
+    font-size: 30px;
+    font-weight: bold;
 
-    font-size:
-        30px;
-
-    font-weight:
-        bold;
-
-    color:
-        #fff;
+    color: #fff;
 
     text-shadow:
         0 0 10px rgba(255,120,190,0.9),
@@ -865,157 +613,135 @@ button:active {
 /* CORAÇÕES */
 
 .coracao {
+    position: fixed;
 
-    position:
-        fixed;
+    bottom: -40px;
 
-    bottom:
-        -40px;
-
-    font-size:
-        25px;
+    font-size: 25px;
 
     animation:
         subir 5s linear forwards;
 
-    pointer-events:
-        none;
+    pointer-events: none;
 
-    z-index:
-        50;
+    z-index: 200;
 }
 
-
 @keyframes subir {
-
     from {
-
         transform:
             translateY(0)
             rotate(0deg);
 
-        opacity:
-            1;
+        opacity: 1;
     }
 
     to {
-
         transform:
             translateY(-110vh)
             rotate(360deg);
 
-        opacity:
-            0;
+        opacity: 0;
     }
 }
 
-
 @keyframes cartaAbrindo {
-
     from {
-
-        opacity:
-            0;
+        opacity: 0;
 
         transform:
             translateY(50px)
-            scale(0.88)
-            rotateX(8deg);
+            scale(0.88);
     }
 
     to {
-
-        opacity:
-            1;
+        opacity: 1;
 
         transform:
             translateY(0)
-            scale(1)
-            rotateX(0);
+            scale(1);
     }
 }
 
-
 @keyframes coracaoCarta {
-
     0% {
-
         transform:
             translateX(-50%)
             scale(1);
     }
 
     50% {
-
         transform:
             translateX(-50%)
             scale(1.2);
     }
 
     100% {
-
         transform:
             translateX(-50%)
             scale(1);
     }
 }
 
-
 @keyframes pulsar {
-
     0% {
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 
     50% {
-        transform:
-            scale(1.06);
+        transform: scale(1.06);
     }
 
     100% {
-        transform:
-            scale(1);
+        transform: scale(1);
     }
 }
 
+@keyframes surpresaEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.75)
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
 
 @keyframes impacto {
-
     0% {
-        transform:
-            translate(0,0);
+        transform: translate(0,0);
     }
 
     20% {
-        transform:
-            translate(-5px,3px);
+        transform: translate(-5px,3px);
     }
 
     40% {
-        transform:
-            translate(5px,-3px);
+        transform: translate(5px,-3px);
     }
 
     60% {
-        transform:
-            translate(-3px,2px);
+        transform: translate(-3px,2px);
     }
 
     80% {
-        transform:
-            translate(3px,-2px);
+        transform: translate(3px,-2px);
     }
 
     100% {
-        transform:
-            translate(0,0);
+        transform: translate(0,0);
     }
 }
 
-
 .telaImpacto {
-
     animation:
         impacto 0.6s ease;
 }
@@ -1026,25 +752,21 @@ button:active {
 @media (max-width: 600px) {
 
     .container {
-
         padding:
             55px 15px 45px;
     }
 
     h1 {
-
         font-size:
             40px;
     }
 
     .subtitulo {
-
         font-size:
             17px;
     }
 
     .botoes {
-
         grid-template-columns:
             1fr;
 
@@ -1053,7 +775,6 @@ button:active {
     }
 
     button {
-
         width:
             100%;
 
@@ -1070,7 +791,6 @@ button:active {
     .botoes button:nth-child(5),
     .botoes button:nth-child(6),
     .botoes button:nth-child(7) {
-
         grid-column:
             auto;
 
@@ -1079,7 +799,6 @@ button:active {
     }
 
     .botoes button:nth-child(6) {
-
         min-height:
             80px;
 
@@ -1088,22 +807,28 @@ button:active {
     }
 
     .botoes button:nth-child(7) {
-
         min-height:
             65px;
     }
 
     .mensagem {
+        width:
+            calc(100% - 30px);
+
+        max-height:
+            70vh;
+
+        padding:
+            25px 20px;
 
         font-size:
             17px;
 
-        padding:
-            22px;
+        border-radius:
+            25px;
     }
 
     .carta {
-
         padding:
             40px 25px 30px;
 
@@ -1112,13 +837,11 @@ button:active {
     }
 
     .carta h2 {
-
         font-size:
             25px;
     }
 
     .surpresa {
-
         font-size:
             19px;
 
@@ -1127,7 +850,6 @@ button:active {
     }
 
     .mensagemFinal {
-
         font-size:
             25px;
     }
