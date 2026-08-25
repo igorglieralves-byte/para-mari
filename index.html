@@ -12,17 +12,40 @@
 
 <body>
 
+    <!-- TELA DE ENTRADA -->
+    <div id="telaEntrada" class="tela-entrada">
+        <div class="entrada-conteudo">
+            <div class="entrada-coracao">❤️</div>
+
+            <h2>Tenho uma coisinha para você...</h2>
+
+            <p>
+                Fiz isso pensando em você.
+            </p>
+
+            <button onclick="entrarNoSite()">
+                Abrir ❤️
+            </button>
+        </div>
+    </div>
+
+
+    <!-- BOTÃO MODO NOITE -->
     <button class="botao-noite" onclick="modoNoite()" aria-label="Mudar modo">
         🌙
     </button>
 
-    <div class="container">
+
+    <main class="container">
 
         <h1>OIIII MARIIII ❤️</h1>
 
         <p class="subtitulo">
             Eu fiz um cantinho só para você...
         </p>
+
+
+        <!-- BOTÕES -->
 
         <div class="botoes">
 
@@ -56,9 +79,15 @@
 
         </div>
 
+
+        <!-- MENSAGEM -->
+
         <div id="mensagem" class="mensagem">
             Escolha alguma coisa acima... 👀❤️
         </div>
+
+
+        <!-- ENVELOPE -->
 
         <div id="area-envelope" class="area-envelope">
 
@@ -68,7 +97,7 @@
 
             <div class="envelope" onclick="abrirCarta()">
 
-                <div class="carta-envelope">
+                <div class="papel-carta">
                     💌
                 </div>
 
@@ -83,6 +112,9 @@
             </div>
 
         </div>
+
+
+        <!-- CARTA -->
 
         <div id="carta" class="carta">
 
@@ -120,27 +152,17 @@
 
         </div>
 
+
+        <!-- SURPRESA -->
+
         <div id="surpresa" class="surpresa">
 
-            😳 EU AVISEI PARA NÃO CLICAR!
-
-            <br><br>
-
-            Tá bom...
-
-            <br><br>
-
-            Eu só queria dizer:
-
-            <br><br>
-
-            <strong>
-                Você é muito especial para mim. ❤️
-            </strong>
+            <div id="surpresaTexto"></div>
 
         </div>
 
-    </div>
+    </main>
+
 
     <script src="script.js"></script>
 
