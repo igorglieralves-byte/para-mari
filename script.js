@@ -1,44 +1,55 @@
+```javascript id="k7xq2m"
 function mostrar(tipo) {
 
     const mensagem = document.getElementById("mensagem");
 
-    if (tipo === "saudade") {
+    // Pequeno efeito antes de trocar a mensagem
+    mensagem.style.opacity = "0";
+    mensagem.style.transform = "translateY(10px)";
 
-        mensagem.innerText =
-        "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
+    setTimeout(() => {
 
-    }
+        if (tipo === "saudade") {
 
-    if (tipo === "triste") {
+            mensagem.innerText =
+                "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
 
-        mensagem.innerText =
-        "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
+        }
 
-    }
+        if (tipo === "triste") {
 
-    if (tipo === "sorriso") {
+            mensagem.innerText =
+                "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
 
-        mensagem.innerText =
-        "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
+        }
 
-    }
+        if (tipo === "sorriso") {
 
-    if (tipo === "especial") {
+            mensagem.innerText =
+                "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
 
-        mensagem.innerText =
-        "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
+        }
 
-    }
+        if (tipo === "especial") {
 
-    if (tipo === "oracao") {
+            mensagem.innerText =
+                "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
 
-        mensagem.innerText =
-        "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
+        }
 
-    }
+        if (tipo === "oracao") {
 
-    criarCoracoes();
+            mensagem.innerText =
+                "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
 
+        }
+
+        mensagem.style.opacity = "1";
+        mensagem.style.transform = "translateY(0)";
+
+        criarCoracoes();
+
+    }, 250);
 }
 
 
@@ -83,10 +94,10 @@ function criarCoracoes() {
         coracao.innerText = "❤️";
 
         coracao.style.left =
-        Math.random() * 100 + "vw";
+            Math.random() * 100 + "vw";
 
         coracao.style.animationDuration =
-        (3 + Math.random() * 3) + "s";
+            (3 + Math.random() * 3) + "s";
 
         document.body.appendChild(coracao);
 
@@ -99,3 +110,4 @@ function criarCoracoes() {
     }
 
 }
+```
