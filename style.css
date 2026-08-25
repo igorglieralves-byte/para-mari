@@ -9,37 +9,16 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-
     color: white;
     text-align: center;
-
     overflow-x: hidden;
 
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(255, 140, 205, 0.35),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(160, 120, 255, 0.30),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(255, 90, 180, 0.25),
-            transparent 35%
-        ),
-        linear-gradient(
-            160deg,
-            #120820 0%,
-            #291039 35%,
-            #59184d 70%,
-            #962d63 100%
-        );
+        radial-gradient(circle at 15% 15%, rgba(255, 140, 205, 0.35), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(160, 120, 255, 0.30), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(255, 90, 180, 0.25), transparent 35%),
+        linear-gradient(160deg, #120820 0%, #291039 35%, #59184d 70%, #962d63 100%);
 
     background-attachment: fixed;
 }
@@ -107,7 +86,6 @@ body::after {
 
 .container {
     position: relative;
-
     z-index: 2;
 
     max-width: 850px;
@@ -157,8 +135,7 @@ h1 {
 }
 
 button {
-    border:
-        1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.25);
 
     border-radius: 22px;
 
@@ -170,14 +147,11 @@ button {
 
     color: white;
 
-    background:
-        rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.12);
 
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
 
-    -webkit-backdrop-filter:
-        blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
         0 10px 30px rgba(0,0,0,0.25),
@@ -188,8 +162,35 @@ button {
         background 0.25s,
         box-shadow 0.25s;
 
-    animation:
-        botaoEntrada 0.8s ease backwards;
+    animation: botaoEntrada 0.8s ease backwards;
+}
+
+button:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+button:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+button:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+button:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+button:nth-child(5) {
+    animation-delay: 0.9s;
+}
+
+button:nth-child(6) {
+    animation-delay: 1.05s;
+}
+
+button:nth-child(7) {
+    animation-delay: 1.2s;
 }
 
 button:hover {
@@ -197,8 +198,7 @@ button:hover {
         translateY(-6px)
         scale(1.03);
 
-    background:
-        rgba(255,255,255,0.21);
+    background: rgba(255,255,255,0.21);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,0.35);
@@ -223,17 +223,13 @@ button:active {
 
     line-height: 1.7;
 
-    background:
-        rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.12);
 
-    border:
-        1px solid rgba(255,255,255,0.22);
+    border: 1px solid rgba(255,255,255,0.22);
 
-    backdrop-filter:
-        blur(15px);
+    backdrop-filter: blur(15px);
 
-    -webkit-backdrop-filter:
-        blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
         0 12px 35px rgba(0,0,0,0.25);
@@ -244,35 +240,20 @@ button:active {
         mensagemEntrando 0.5s ease;
 }
 
-@keyframes mensagemEntrando {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(15px)
-            scale(0.97);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
+/* CARTA */
 
 .carta {
     display: none;
 
+    position: relative;
+
     max-width: 700px;
 
-    margin: 35px auto;
+    margin: 45px auto;
 
-    padding: 35px;
+    padding: 45px 40px;
 
-    border-radius: 28px;
+    border-radius: 30px;
 
     text-align: left;
 
@@ -283,26 +264,84 @@ button:active {
     background:
         linear-gradient(
             135deg,
-            #fffaff,
-            #ffe8f3
+            #fffdfd,
+            #fff1f7
         );
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,0.35);
+        0 25px 60px rgba(0,0,0,0.40);
+
+    border:
+        1px solid rgba(255,255,255,0.8);
 
     animation:
-        cartaAbrindo 0.8s ease;
+        cartaAbrindo 1s ease;
+}
+
+/* BRILHO DA CARTA */
+
+.carta::before {
+
+    content: "❤️";
+
+    position: absolute;
+
+    top: -18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 30px;
+
+    filter:
+        drop-shadow(
+            0 0 10px rgba(255,70,150,0.7)
+        );
+
+    animation:
+        coracaoCarta 2s ease-in-out infinite;
 }
 
 .carta h2 {
+
     text-align: center;
 
     color: #9b315e;
 
-    margin-top: 0;
+    margin-top: 5px;
+
+    margin-bottom: 30px;
+
+    font-size: 30px;
 }
 
+.carta p {
+
+    margin:
+        0 0 20px;
+}
+
+.carta strong {
+
+    display: block;
+
+    text-align: right;
+
+    margin-top: 25px;
+
+    font-size: 21px;
+
+    color: #9b315e;
+
+    animation:
+        assinatura 1.5s ease;
+}
+
+/* SURPRESA */
+
 .surpresa {
+
     display: none;
 
     margin: 35px auto;
@@ -339,6 +378,7 @@ button:active {
 }
 
 .mensagemFinal {
+
     display: inline-block;
 
     font-size: 30px;
@@ -355,7 +395,10 @@ button:active {
         pulsar 1.5s ease-in-out infinite;
 }
 
+/* CORAÇÕES */
+
 .coracao {
+
     position: fixed;
 
     bottom: -40px;
@@ -369,6 +412,8 @@ button:active {
 
     z-index: 50;
 }
+
+/* ANIMAÇÕES */
 
 @keyframes subir {
 
@@ -389,47 +434,94 @@ button:active {
     }
 }
 
-/* TREMIDA DA TELA */
+@keyframes cartaAbrindo {
 
-.telaImpacto {
-    animation:
-        impacto 0.6s ease;
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.88)
+            rotateX(8deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
+    }
 }
 
-@keyframes impacto {
+@keyframes coracaoCarta {
 
     0% {
-        transform: translate(0, 0);
+        transform:
+            translateX(-50%)
+            scale(1);
     }
 
-    15% {
-        transform: translate(-5px, 3px);
-    }
-
-    30% {
-        transform: translate(5px, -3px);
-    }
-
-    45% {
-        transform: translate(-4px, 2px);
-    }
-
-    60% {
-        transform: translate(4px, -2px);
-    }
-
-    75% {
-        transform: translate(-2px, 1px);
+    50% {
+        transform:
+            translateX(-50%)
+            scale(1.2);
     }
 
     100% {
-        transform: translate(0, 0);
+        transform:
+            translateX(-50%)
+            scale(1);
+    }
+}
+
+@keyframes assinatura {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(20px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+@keyframes mensagemEntrando {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
 @keyframes surpresaEntrada {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -438,6 +530,7 @@ button:active {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -464,6 +557,7 @@ button:active {
 @keyframes tituloEntrada {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -472,6 +566,7 @@ button:active {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -483,6 +578,7 @@ button:active {
 @keyframes subtituloEntrada {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -490,6 +586,7 @@ button:active {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -500,6 +597,7 @@ button:active {
 @keyframes botaoEntrada {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -507,6 +605,7 @@ button:active {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -514,24 +613,39 @@ button:active {
     }
 }
 
-@keyframes cartaAbrindo {
+@keyframes impacto {
 
-    from {
-        opacity: 0;
-
-        transform:
-            scale(0.85)
-            translateY(20px);
+    0% {
+        transform: translate(0,0);
     }
 
-    to {
-        opacity: 1;
+    20% {
+        transform: translate(-5px,3px);
+    }
 
-        transform:
-            scale(1)
-            translateY(0);
+    40% {
+        transform: translate(5px,-3px);
+    }
+
+    60% {
+        transform: translate(-3px,2px);
+    }
+
+    80% {
+        transform: translate(3px,-2px);
+    }
+
+    100% {
+        transform: translate(0,0);
     }
 }
+
+.telaImpacto {
+    animation:
+        impacto 0.6s ease;
+}
+
+/* CELULAR */
 
 @media (max-width: 600px) {
 
@@ -569,9 +683,19 @@ button:active {
     }
 
     .carta {
-        padding: 25px;
+
+        padding:
+            40px 25px 30px;
 
         font-size: 16px;
+    }
+
+    .carta h2 {
+        font-size: 25px;
+    }
+
+    .carta strong {
+        font-size: 19px;
     }
 
     .surpresa {
