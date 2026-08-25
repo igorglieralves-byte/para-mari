@@ -10,43 +10,41 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: white;
     text-align: center;
-
     overflow-x: hidden;
 
-    /* CÉU */
     background:
-        radial-gradient(circle at 20% 20%, rgba(255, 160, 210, 0.20), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(180, 120, 255, 0.20), transparent 30%),
+        radial-gradient(circle at 15% 20%, rgba(255, 130, 200, 0.35), transparent 25%),
+        radial-gradient(circle at 85% 25%, rgba(150, 100, 255, 0.30), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(255, 100, 180, 0.25), transparent 35%),
         linear-gradient(
             160deg,
-            #160d2b 0%,
-            #351344 35%,
-            #681c50 65%,
-            #a83268 100%
+            #120820 0%,
+            #26103d 30%,
+            #57184e 65%,
+            #8f2c62 100%
         );
 
     background-attachment: fixed;
 }
 
-/* Brilho no céu */
+/* BRILHO GRANDE NO FUNDO */
 
 body::before {
     content: "";
     position: fixed;
 
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
-    top: -250px;
+    top: -300px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    background: rgba(255, 150, 210, 0.15);
+    background: rgba(255, 150, 210, 0.18);
 
     border-radius: 50%;
 
@@ -58,69 +56,68 @@ body::before {
 /* ESTRELAS */
 
 body::after {
-    content: "✦  ·  ✧  ·  ✦  ·  ⋆  ·  ✧  ·  ✦  ·  ⋆  ·  ✧  ·  ✦  ·  ⋆";
+    content:
+        "✦     ·     ✧       ·       ⋆     ·     ✦       ·       ✧
+         ·       ⋆       ·       ✦     ·       ✧       ·       ⋆";
 
     position: fixed;
 
     inset: 0;
 
-    padding: 30px;
+    padding: 20px;
 
     font-size: 18px;
 
-    line-height: 80px;
+    line-height: 85px;
 
-    letter-spacing: 25px;
+    letter-spacing: 18px;
 
-    opacity: 0.25;
+    white-space: pre-wrap;
+
+    opacity: 0.35;
 
     pointer-events: none;
 
-    animation: estrelas 8s ease-in-out infinite alternate;
+    animation: estrelas 7s ease-in-out infinite alternate;
 }
 
 @keyframes estrelas {
 
     from {
-        opacity: 0.15;
+        opacity: 0.18;
         transform: translateY(0);
     }
 
     to {
-        opacity: 0.35;
+        opacity: 0.45;
         transform: translateY(-15px);
     }
-
 }
 
 /* CONTEÚDO */
 
 .container {
-
     position: relative;
-
     z-index: 2;
 
     max-width: 850px;
 
     margin: auto;
 
-    padding: 80px 20px 60px;
+    padding: 75px 20px 60px;
 }
 
 /* TÍTULO */
 
 h1 {
-
     font-size: 55px;
 
-    margin: 0 0 15px;
-
-    font-weight: bold;
+    margin: 0 0 12px;
 
     text-shadow:
-        0 0 10px rgba(255, 150, 210, 0.7),
-        0 0 30px rgba(255, 100, 180, 0.4);
+        0 0 10px rgba(255, 150, 210, 0.9),
+        0 0 30px rgba(255, 100, 180, 0.6),
+        0 0 60px rgba(255, 100, 200, 0.3);
 
     animation: entrada 1.2s ease;
 }
@@ -128,12 +125,14 @@ h1 {
 /* SUBTÍTULO */
 
 .subtitulo {
-
     font-size: 20px;
 
     margin-bottom: 45px;
 
-    color: #ffe8f5;
+    color: #ffeaf6;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.25);
 
     animation: entrada 1.6s ease;
 }
@@ -141,7 +140,6 @@ h1 {
 /* BOTÕES */
 
 .botoes {
-
     display: grid;
 
     grid-template-columns:
@@ -154,10 +152,7 @@ h1 {
     margin: auto;
 }
 
-/* BOTÃO VIDRO */
-
 button {
-
     border: 1px solid rgba(255,255,255,0.25);
 
     border-radius: 22px;
@@ -172,13 +167,13 @@ button {
 
     background: rgba(255,255,255,0.12);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
 
-    -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(14px);
 
     box-shadow:
         0 8px 30px rgba(0,0,0,0.25),
-        inset 0 1px 1px rgba(255,255,255,0.15);
+        inset 0 1px rgba(255,255,255,0.15);
 
     transition:
         transform 0.25s,
@@ -186,31 +181,22 @@ button {
         box-shadow 0.25s;
 }
 
-/* PC */
-
 button:hover {
-
     transform: translateY(-6px) scale(1.03);
 
-    background: rgba(255,255,255,0.20);
+    background: rgba(255,255,255,0.21);
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.3);
+        0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* CELULAR */
-
 button:active {
-
-    transform: scale(0.95);
-
-    background: rgba(255,255,255,0.25);
+    transform: scale(0.94);
 }
 
 /* MENSAGEM */
 
 .mensagem {
-
     margin: 35px auto;
 
     max-width: 680px;
@@ -219,32 +205,27 @@ button:active {
 
     padding: 28px;
 
-    border-radius: 25px;
+    border-radius: 26px;
 
     font-size: 19px;
 
     line-height: 1.7;
 
-    color: #fff;
-
     background: rgba(255,255,255,0.12);
 
-    border: 1px solid rgba(255,255,255,0.20);
+    border: 1px solid rgba(255,255,255,0.22);
 
     backdrop-filter: blur(15px);
 
     -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
-        0 10px 35px rgba(0,0,0,0.25);
-
-    transition: 0.3s;
+        0 12px 35px rgba(0,0,0,0.25);
 }
 
 /* CARTA */
 
 .carta {
-
     display: none;
 
     max-width: 700px;
@@ -264,29 +245,25 @@ button:active {
     background:
         linear-gradient(
             135deg,
-            #fff8fc,
-            #ffeaf4
+            #fffaff,
+            #ffe8f3
         );
 
     box-shadow:
         0 20px 50px rgba(0,0,0,0.35);
 
-    animation: cartaAbrir 0.8s ease;
+    animation: aparecer 0.8s ease;
 }
 
 .carta h2 {
-
     text-align: center;
 
     color: #9b315e;
-
-    margin-top: 0;
 }
 
 /* SURPRESA */
 
 .surpresa {
-
     display: none;
 
     margin: 35px auto;
@@ -297,26 +274,26 @@ button:active {
 
     font-size: 22px;
 
-    background:
-        rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.14);
 
     border: 1px solid rgba(255,255,255,0.25);
 
     backdrop-filter: blur(15px);
 
+    -webkit-backdrop-filter: blur(15px);
+
     box-shadow:
         0 15px 40px rgba(0,0,0,0.3);
 
-    animation: cartaAbrir 0.8s ease;
+    animation: aparecer 0.8s ease;
 }
 
-/* CORAÇÕES DO JAVASCRIPT */
+/* CORAÇÕES */
 
 .coracao {
-
     position: fixed;
 
-    bottom: -40px;
+    bottom: -30px;
 
     font-size: 25px;
 
@@ -325,13 +302,12 @@ button:active {
 
     pointer-events: none;
 
-    z-index: 10;
+    z-index: 20;
 }
 
 @keyframes subir {
 
     from {
-
         transform:
             translateY(0)
             rotate(0deg);
@@ -340,14 +316,12 @@ button:active {
     }
 
     to {
-
         transform:
             translateY(-110vh)
             rotate(360deg);
 
         opacity: 0;
     }
-
 }
 
 /* ANIMAÇÕES */
@@ -355,7 +329,6 @@ button:active {
 @keyframes entrada {
 
     from {
-
         opacity: 0;
 
         transform:
@@ -363,35 +336,30 @@ button:active {
     }
 
     to {
-
         opacity: 1;
 
         transform:
             translateY(0);
     }
-
 }
 
-@keyframes cartaAbrir {
+@keyframes aparecer {
 
     from {
-
         opacity: 0;
 
         transform:
             scale(0.85)
-            translateY(20px);
+            translateY(15px);
     }
 
     to {
-
         opacity: 1;
 
         transform:
             scale(1)
             translateY(0);
     }
-
 }
 
 /* CELULAR */
@@ -399,33 +367,25 @@ button:active {
 @media (max-width: 600px) {
 
     .container {
-
         padding:
-            55px 15px 40px;
+            55px 15px 45px;
     }
 
     h1 {
-
         font-size: 40px;
-
     }
 
     .subtitulo {
-
         font-size: 17px;
-
-        margin-bottom: 35px;
     }
 
     .botoes {
-
         grid-template-columns: 1fr;
 
         gap: 13px;
     }
 
     button {
-
         width: 100%;
 
         padding: 18px;
@@ -434,25 +394,21 @@ button:active {
     }
 
     .mensagem {
-
         font-size: 17px;
 
         padding: 22px;
     }
 
     .carta {
-
         padding: 25px;
 
         font-size: 16px;
     }
 
     .surpresa {
-
         font-size: 19px;
 
         padding: 28px;
     }
-
 }
 ```
