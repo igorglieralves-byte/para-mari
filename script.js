@@ -122,3 +122,26 @@ function criarCoracoes() {
     }
 
 }
+
+
+/* MODO NOITE */
+
+function modoNoite() {
+
+    const corpo = document.body;
+
+    const botao = document.querySelector(".botao-noite");
+
+    corpo.classList.toggle("modo-noite");
+
+    if (corpo.classList.contains("modo-noite")) {
+
+        botao.innerText = "☀️";
+
+    } else {
+
+        botao.innerText = "🌙";
+
+    }
+
+}
