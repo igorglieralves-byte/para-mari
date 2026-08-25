@@ -1,181 +1,23 @@
-function mostrar(tipo) {
+/* MENSAGEM AUTOMÁTICA AO ENTRAR */
 
-    const mensagem = document.getElementById("mensagem");
+window.addEventListener("load", function () {
 
-    if (tipo === "saudade") {
+    const mensagemBoasVindas =
+        document.createElement("div");
 
-        mensagem.innerText =
-        "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
+    mensagemBoasVindas.className =
+        "mensagem-boas-vindas";
 
-    }
+    mensagemBoasVindas.innerHTML =
+        "Antes de clicar em qualquer coisa...<br>" +
+        "só queria que você soubesse que eu fiz isso pensando em você. ❤️";
 
-    if (tipo === "triste") {
-
-        mensagem.innerText =
-        "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
-
-    }
-
-    if (tipo === "sorriso") {
-
-        mensagem.innerText =
-        "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
-
-    }
-
-    if (tipo === "especial") {
-
-        mensagem.innerText =
-        "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
-
-    }
-
-    if (tipo === "oracao") {
-
-        mensagem.innerText =
-        "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
-
-    }
-
-    criarCoracoes();
-}
-
-
-function mostrarEnvelope() {
-
-    const areaEnvelope =
-        document.getElementById("area-envelope");
-
-    const carta =
-        document.getElementById("carta");
-
-    areaEnvelope.style.display = "block";
-
-    carta.style.display = "none";
-
-    areaEnvelope.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-    criarCoracoes();
-}
-
-
-function abrirCarta() {
-
-    const envelope =
-        document.querySelector(".envelope");
-
-    const areaEnvelope =
-        document.getElementById("area-envelope");
-
-    const carta =
-        document.getElementById("carta");
-
-    envelope.classList.add("aberto");
-
-    criarCoracoes();
+    document.body.appendChild(mensagemBoasVindas);
 
     setTimeout(function () {
 
-        areaEnvelope.style.display = "none";
+        mensagemBoasVindas.remove();
 
-        carta.style.display = "block";
+    }, 5200);
 
-        carta.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-        criarCoracoes();
-
-    }, 900);
-}
-
-
-function surpresa() {
-
-    const surpresa =
-        document.getElementById("surpresa");
-
-    surpresa.style.display = "block";
-
-    surpresa.scrollIntoView({
-        behavior: "smooth"
-    });
-
-    criarCoracoes();
-}
-
-
-function criarCoracoes() {
-
-    const simbolos = [
-        "❤️",
-        "💕",
-        "💗",
-        "💖",
-        "💓",
-        "💞",
-        "✨",
-        "💫"
-    ];
-
-    for (let i = 0; i < 18; i++) {
-
-        const coracao =
-            document.createElement("div");
-
-        coracao.className = "coracao";
-
-        coracao.innerText =
-            simbolos[
-                Math.floor(
-                    Math.random() * simbolos.length
-                )
-            ];
-
-        coracao.style.left =
-            Math.random() * 100 + "vw";
-
-        coracao.style.fontSize =
-            (18 + Math.random() * 22) + "px";
-
-        coracao.style.animationDuration =
-            (3 + Math.random() * 4) + "s";
-
-        coracao.style.animationDelay =
-            (Math.random() * 0.8) + "s";
-
-        coracao.style.opacity =
-            0.6 + Math.random() * 0.4;
-
-        document.body.appendChild(coracao);
-
-        setTimeout(function () {
-            coracao.remove();
-        }, 8000);
-    }
-}
-
-
-function modoNoite() {
-
-    const corpo = document.body;
-
-    const botao =
-        document.querySelector(".botao-noite");
-
-    corpo.classList.toggle("modo-noite");
-
-    if (corpo.classList.contains("modo-noite")) {
-
-        botao.innerText = "☀️";
-
-    } else {
-
-        botao.innerText = "🌙";
-
-    }
-}
+});
