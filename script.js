@@ -63,38 +63,120 @@ function abrirCarta() {
 
 function surpresa() {
 
-    const surpresa = document.getElementById("surpresa");
+    const surpresaBox = document.getElementById("surpresa");
 
-    surpresa.style.display = "block";
+    // Limpa qualquer conteúdo anterior
+    surpresaBox.innerHTML = "";
 
-    surpresa.innerHTML = `
-        😳 <strong>EU AVISEI PARA NÃO CLICAR!</strong>
+    // Mostra a caixa
+    surpresaBox.style.display = "block";
 
-        <br><br>
+    // Faz a tela tremer
+    document.body.classList.remove("telaImpacto");
 
-        Tá bom... você venceu. 😂
+    void document.body.offsetWidth;
 
-        <br><br>
+    document.body.classList.add("telaImpacto");
 
-        Já que você clicou...
-
-        <br><br>
-
-        <span style="font-size: 28px;">
-            Você é muito especial para mim. ❤️
-        </span>
-
-        <br><br>
-
-        🥹❤️
-
-    `;
-
-    surpresa.scrollIntoView({
-        behavior: "smooth"
-    });
-
+    // Começa a chuva de corações
     chuvaDeCoracoes();
+
+    // Primeiro texto
+    setTimeout(() => {
+
+        surpresaBox.innerHTML = `
+            <div class="surpresaTexto">
+                😳<br>
+                <strong>EU AVISEI PARA NÃO CLICAR! 😂❤️</strong>
+            </div>
+        `;
+
+    }, 300);
+
+
+    // Segundo texto
+    setTimeout(() => {
+
+        surpresaBox.innerHTML = `
+            <div class="surpresaTexto">
+                😳<br>
+                <strong>EU AVISEI PARA NÃO CLICAR! 😂❤️</strong>
+
+                <br><br>
+
+                Tá bom... você venceu. 😂
+            </div>
+        `;
+
+    }, 1800);
+
+
+    // Terceiro texto
+    setTimeout(() => {
+
+        surpresaBox.innerHTML = `
+            <div class="surpresaTexto">
+                😳<br>
+                <strong>EU AVISEI PARA NÃO CLICAR! 😂❤️</strong>
+
+                <br><br>
+
+                Tá bom... você venceu. 😂
+
+                <br><br>
+
+                Mas já que você clicou...
+            </div>
+        `;
+
+    }, 3300);
+
+
+    // Mensagem final
+    setTimeout(() => {
+
+        surpresaBox.innerHTML = `
+            <div class="surpresaTexto">
+
+                😳<br>
+
+                <strong>EU AVISEI PARA NÃO CLICAR! 😂❤️</strong>
+
+                <br><br>
+
+                Tá bom... você venceu. 😂
+
+                <br><br>
+
+                Mas já que você clicou...
+
+                <br><br>
+
+                <span class="mensagemFinal">
+                    Você é muito especial para mim. ❤️
+                </span>
+
+                <br><br>
+
+                🥹❤️
+
+            </div>
+        `;
+
+        chuvaDeCoracoes();
+
+    }, 4800);
+
+
+    // Leva até a surpresa
+    setTimeout(() => {
+
+        surpresaBox.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 400);
 }
 
 
@@ -105,22 +187,20 @@ function criarCoracoes() {
         criarUmCoracao();
 
     }
-
 }
 
 
 function chuvaDeCoracoes() {
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 45; i++) {
 
         setTimeout(() => {
 
             criarUmCoracao();
 
-        }, i * 70);
+        }, i * 60);
 
     }
-
 }
 
 
@@ -147,6 +227,5 @@ function criarUmCoracao() {
 
         coracao.remove();
 
-    }, 6000);
-
+    }, 6500);
 }
