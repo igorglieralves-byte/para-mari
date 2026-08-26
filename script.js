@@ -754,3 +754,30 @@ window.addEventListener(
         }, 900);
     }
 );
+/* =========================
+   MÚSICA
+========================= */
+
+function controlarMusica() {
+
+    const musica =
+        document.getElementById("musica");
+
+    const botao =
+        document.getElementById("botaoMusica");
+
+    if (musica.paused) {
+
+        musica.play();
+
+        botao.innerText =
+            "⏸️ Pausar música";
+
+    } else {
+
+        musica.pause();
+
+        botao.innerText =
+            "🎵 Continuar música";
+    }
+}
