@@ -365,3 +365,451 @@
 </body>
 
 </html>
+<!-- =========================
+     JOGO DOS CORAÇÕES ❤️
+========================= -->
+
+<div id="telaJogo" class="tela-jogo">
+
+    <button
+        class="voltar-jogo"
+        onclick="fecharJogo()">
+        ⬅️ Voltar
+    </button>
+
+    <div class="jogo-topo">
+
+        <h2>❤️ Pegue os corações ❤️</h2>
+
+        <p>
+            Clique nos corações antes que o tempo acabe!
+        </p>
+
+        <div class="placar-jogo">
+
+            <div>
+                ❤️
+                <span id="pontuacaoJogo">0</span>
+            </div>
+
+            <div>
+                ⏱️
+                <span id="tempoJogo">30</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div
+        id="areaJogo"
+        class="area-jogo">
+
+        <div
+            id="mensagemInicioJogo"
+            class="mensagem-inicio-jogo">
+
+            <div>❤️</div>
+
+            <h3>Pronta?</h3>
+
+            <p>
+                Pegue o máximo de corações!
+            </p>
+
+            <button onclick="iniciarJogo()">
+                COMEÇAR ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   JOGO DOS CORAÇÕES ❤️
+========================= */
+
+let pontuacaoJogo = 0;
+let tempoRestanteJogo = 30;
+let intervaloJogo = null;
+let jogoRodando = false;
+
+
+/* ABRIR JOGO */
+
+function abrirJogo() {
+
+    const tela =
+        document.getElementById("telaJogo");
+
+    if (!tela) return;
+
+    tela.classList.add("jogo-aberto");
+
+    pontuacaoJogo = 0;
+    tempoRestanteJogo = 30;
+
+    document.getElementById(
+        "pontuacaoJogo"
+    ).innerText = "0";
+
+    document.getElementById(
+        "tempoJogo"
+    ).innerText = "30";
+
+    mostrarInicioJogo();
+}
+
+
+/* FECHAR JOGO */
+
+function fecharJogo() {
+
+    const tela =
+        document.getElementById("telaJogo");
+
+    if (!tela) return;
+
+    tela.classList.remove("jogo-aberto");
+
+    pararJogo();
+
+}
+
+
+/* TELA INICIAL */
+
+function mostrarInicioJogo() {
+
+    const area =
+        document.getElementById("areaJogo");
+
+    area.innerHTML = `
+
+        <div class="mensagem-inicio-jogo">
+
+            <div class="coracao-grande-jogo">
+                ❤️
+            </div>
+
+            <h3>Pronta?</h3>
+
+            <p>
+                Pegue o máximo de corações
+                que conseguir!
+            </p>
+
+            <button onclick="iniciarJogo()">
+                COMEÇAR ❤️
+            </button>
+
+        </div>
+
+    `;
+}
+
+
+/* COMEÇAR */
+
+function iniciarJogo() {
+
+    pararJogo();
+
+    pontuacaoJogo = 0;
+    tempoRestanteJogo = 30;
+    jogoRodando = true;
+
+    document.getElementById(
+        "pontuacaoJogo"
+    ).innerText = "0";
+
+    document.getElementById(
+        "tempoJogo"
+    ).innerText = "30";
+
+    const area =
+        document.getElementById("areaJogo");
+
+    area.innerHTML = "";
+
+    criarCoracaoJogo();
+
+    intervaloJogo =
+        setInterval(function () {
+
+            tempoRestanteJogo--;
+
+            document.getElementById(
+                "tempoJogo"
+            ).innerText =
+                tempoRestanteJogo;
+
+            if (tempoRestanteJogo <= 0) {
+
+                finalizarJogo();
+
+            }
+
+        }, 1000);
+
+}
+
+
+/* CRIAR CORAÇÃO */
+
+function criarCoracaoJogo() {
+
+    if (!jogoRodando) return;
+
+    const area =
+        document.getElementById("areaJogo");
+
+    const coracao =
+        document.createElement("button");
+
+    coracao.className =
+        "coracao-jogo";
+
+    coracao.innerText = "❤️";
+
+    const tamanho =
+        45 + Math.random() * 25;
+
+    coracao.style.fontSize =
+        tamanho + "px";
+
+    coracao.style.left =
+        (
+            5 +
+            Math.random() * 85
+        ) + "%";
+
+    coracao.style.top =
+        (
+            8 +
+            Math.random() * 78
+        ) + "%";
+
+
+    coracao.onclick = function () {
+
+        if (!jogoRodando) return;
+
+        pontuacaoJogo++;
+
+        document.getElementById(
+            "pontuacaoJogo"
+        ).innerText =
+            pontuacaoJogo;
+
+        coracao.classList.add(
+            "coracao-pego"
+        );
+
+        criarMiniCoracoesJogo(
+            coracao
+        );
+
+        setTimeout(function () {
+
+            coracao.remove();
+
+        }, 180);
+
+        setTimeout(function () {
+
+            criarCoracaoJogo();
+
+        }, 120);
+
+    };
+
+
+    area.appendChild(coracao);
+
+}
+
+
+/* MINI CORAÇÕES */
+
+function criarMiniCoracoesJogo(
+    origem
+) {
+
+    const area =
+        document.getElementById(
+            "areaJogo"
+        );
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        const mini =
+            document.createElement("span");
+
+        mini.className =
+            "mini-coracao-jogo";
+
+        mini.innerText =
+            ["💕", "💗", "✨", "💖"][
+                Math.floor(
+                    Math.random() * 4
+                )
+            ];
+
+        mini.style.left =
+            origem.offsetLeft +
+            "px";
+
+        mini.style.top =
+            origem.offsetTop +
+            "px";
+
+        mini.style.setProperty(
+            "--x",
+            (
+                Math.random() * 100 -
+                50
+            ) + "px"
+        );
+
+        mini.style.setProperty(
+            "--y",
+            (
+                Math.random() * 100 -
+                50
+            ) + "px"
+        );
+
+        area.appendChild(mini);
+
+        setTimeout(function () {
+
+            mini.remove();
+
+        }, 700);
+
+    }
+
+}
+
+
+/* FINALIZAR */
+
+function finalizarJogo() {
+
+    jogoRodando = false;
+
+    clearInterval(
+        intervaloJogo
+    );
+
+    intervaloJogo = null;
+
+    const area =
+        document.getElementById(
+            "areaJogo"
+        );
+
+    area.innerHTML = `
+
+        <div class="resultado-jogo">
+
+            <div class="resultado-coracao">
+                ❤️
+            </div>
+
+            <h2>Tempo acabou!</h2>
+
+            <p>
+                Você pegou
+            </p>
+
+            <strong>
+                ${pontuacaoJogo}
+            </strong>
+
+            <p>
+                corações ❤️
+            </p>
+
+            <div class="mensagem-resultado-jogo">
+
+                ${
+                    pontuacaoJogo >= 25
+                    ? "MEU DEUS 😳❤️ Você foi rápida demais!"
+                    : pontuacaoJogo >= 15
+                    ? "Muito bem! 🥹❤️"
+                    : pontuacaoJogo >= 8
+                    ? "Até que foi bem! 😂❤️"
+                    : "Acho que os corações estavam rápidos demais 😂❤️"
+                }
+
+            </div>
+
+            <button onclick="iniciarJogo()">
+                🔄 Jogar novamente
+            </button>
+
+            <button
+                class="botao-voltar-resultado"
+                onclick="fecharJogo()">
+
+                ⬅️ Voltar
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* PARAR */
+
+function pararJogo() {
+
+    jogoRodando = false;
+
+    if (intervaloJogo) {
+
+        clearInterval(
+            intervaloJogo
+        );
+
+        intervaloJogo = null;
+
+    }
+
+}
+
+
+/* GARANTIR QUE O JOGO NÃO QUEBRE O RESTO */
+
+window.addEventListener(
+    "load",
+    function () {
+
+        const area =
+            document.getElementById(
+                "areaJogo"
+            );
+
+        if (area) {
+
+            mostrarInicioJogo();
+
+        }
+
+    }
+);
+
+</script>
