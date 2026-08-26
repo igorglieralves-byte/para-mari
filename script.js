@@ -909,7 +909,11 @@ if (musica && botaoMusica) {
 
             botaoMusica.innerText =
                 "🎵 Ouvir novamente";
+const botaoMusica = document.getElementById("botaoMusica");
 
+if (botaoMusica) {
+    botaoMusica.style.display = "none";
+}
         }
     );
 }
