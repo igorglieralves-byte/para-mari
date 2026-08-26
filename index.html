@@ -813,3 +813,711 @@ window.addEventListener(
 );
 
 </script>
+<style>
+
+/* =========================
+   BOTÃO PARA ABRIR O JOGO
+========================= */
+
+.botao-jogo {
+
+    width: 100%;
+
+    min-height: 80px;
+
+    margin-top: 10px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,90,160,0.20),
+            rgba(150,80,255,0.20)
+        );
+
+    color: white;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.botao-jogo:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.01);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.35);
+
+}
+
+
+.botao-jogo:active {
+
+    transform:
+        scale(0.95);
+
+}
+
+
+/* =========================
+   TELA DO JOGO
+========================= */
+
+.tela-jogo {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9000;
+
+    display: none;
+
+    padding: 25px;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,100,190,0.35),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(130,80,255,0.35),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            160deg,
+            #120820,
+            #421344,
+            #8d285f
+        );
+
+    overflow: hidden;
+
+}
+
+
+.tela-jogo.jogo-aberto {
+
+    display: block;
+
+    animation:
+        jogoEntrando
+        0.5s ease;
+
+}
+
+
+@keyframes jogoEntrando {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+.voltar-jogo {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    z-index: 20;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.jogo-topo {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 700px;
+
+    margin:
+        65px auto 15px;
+
+}
+
+
+.jogo-topo h2 {
+
+    margin: 0;
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,150,220,0.7);
+
+}
+
+
+.jogo-topo p {
+
+    margin:
+        8px 0 15px;
+
+    opacity: 0.9;
+
+}
+
+
+.placar-jogo {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+.placar-jogo div {
+
+    min-width: 110px;
+
+    padding:
+        10px 18px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    backdrop-filter:
+        blur(12px);
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   ÁREA DO JOGO
+========================= */
+
+.area-jogo {
+
+    position: relative;
+
+    width: min(
+        900px,
+        100%
+    );
+
+    height:
+        calc(
+            100vh - 220px
+        );
+
+    min-height: 350px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    background:
+        rgba(0,0,0,0.16);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    box-shadow:
+        inset
+        0 0 80px
+        rgba(0,0,0,0.18);
+
+}
+
+
+/* =========================
+   TELA INICIAL
+========================= */
+
+.mensagem-inicio-jogo {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+}
+
+
+.coracao-grande-jogo {
+
+    font-size: 80px;
+
+    animation:
+        coracaoJogoPulsando
+        1.4s ease-in-out infinite;
+
+}
+
+
+@keyframes coracaoJogoPulsando {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+}
+
+
+.mensagem-inicio-jogo h3 {
+
+    font-size: 28px;
+
+    margin:
+        10px 0;
+
+}
+
+
+.mensagem-inicio-jogo p {
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.mensagem-inicio-jogo button,
+.resultado-jogo button {
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding:
+        15px 28px;
+
+    background: white;
+
+    color: #8a2858;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.mensagem-inicio-jogo button:hover,
+.resultado-jogo button:hover {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+/* =========================
+   CORAÇÃO DO JOGO
+========================= */
+
+.coracao-jogo {
+
+    position: absolute;
+
+    z-index: 5;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 5px 10px
+            rgba(0,0,0,0.25)
+        );
+
+    animation:
+        coracaoAparecendo
+        0.25s ease;
+
+    transition:
+        transform 0.12s ease;
+
+}
+
+
+.coracao-jogo:hover {
+
+    transform:
+        scale(1.18);
+
+}
+
+
+.coracao-jogo:active {
+
+    transform:
+        scale(0.75);
+
+}
+
+
+.coracao-pego {
+
+    animation:
+        coracaoPegando
+        0.18s ease
+        forwards;
+
+}
+
+
+@keyframes coracaoAparecendo {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes coracaoPegando {
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            scale(1.8);
+
+    }
+
+}
+
+
+/* =========================
+   MINI CORAÇÕES
+========================= */
+
+.mini-coracao-jogo {
+
+    position: absolute;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    font-size: 18px;
+
+    animation:
+        miniCoracao
+        0.7s ease
+        forwards;
+
+}
+
+
+@keyframes miniCoracao {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0.4);
+
+    }
+
+}
+
+
+/* =========================
+   RESULTADO
+========================= */
+
+.resultado-jogo {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    padding: 25px;
+
+}
+
+
+.resultado-coracao {
+
+    font-size: 70px;
+
+    animation:
+        coracaoJogoPulsando
+        1.3s infinite;
+
+}
+
+
+.resultado-jogo h2 {
+
+    font-size: 28px;
+
+    margin:
+        10px 0;
+
+}
+
+
+.resultado-jogo p {
+
+    margin: 5px;
+
+    font-size: 18px;
+
+}
+
+
+.resultado-jogo strong {
+
+    font-size: 65px;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,180,230,0.8);
+
+}
+
+
+.mensagem-resultado-jogo {
+
+    max-width: 500px;
+
+    margin:
+        15px 0 25px;
+
+    font-size: 18px;
+
+}
+
+
+.botao-voltar-resultado {
+
+    margin-top: 12px;
+
+    background:
+        rgba(255,255,255,0.15) !important;
+
+    color: white !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25) !important;
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .tela-jogo {
+
+        padding:
+            15px;
+
+    }
+
+    .jogo-topo {
+
+        margin-top:
+            65px;
+
+    }
+
+    .jogo-topo h2 {
+
+        font-size: 24px;
+
+    }
+
+    .jogo-topo p {
+
+        font-size: 14px;
+
+    }
+
+    .area-jogo {
+
+        height:
+            calc(
+                100vh - 215px
+            );
+
+        min-height:
+            400px;
+
+        border-radius:
+            25px;
+
+    }
+
+    .voltar-jogo {
+
+        top: 15px;
+
+        left: 15px;
+
+    }
+
+}
+
+</style>
