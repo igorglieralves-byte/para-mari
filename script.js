@@ -1,4 +1,11 @@
 /* =========================
+   CONTROLE DA MENSAGEM
+========================= */
+
+let tempoMensagem;
+
+
+/* =========================
    TELA DE ENTRADA
 ========================= */
 
@@ -16,42 +23,60 @@ function entrarNoSite() {
 
 
 /* =========================
-   MENSAGENS ANTIGAS
+   MOSTRAR MENSAGEM
 ========================= */
 
 function mostrar(tipo) {
 
     const mensagem = document.getElementById("mensagem");
 
-    if (tipo === "saudade") {
+    clearTimeout(tempoMensagem);
 
-        mensagem.innerText =
-            "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
+    mensagem.classList.remove("mensagemAnimada");
 
-    } else if (tipo === "triste") {
+    mensagem.style.opacity = "0";
 
-        mensagem.innerText =
-            "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
+    setTimeout(function () {
 
-    } else if (tipo === "sorriso") {
+        if (tipo === "saudade") {
 
-        mensagem.innerText =
-            "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
+            mensagem.innerText =
+                "Se você está com saudade, imagina que eu estou aí agora te dando aquele abraço apertado que a distância não deixa eu te dar. 🫂❤️";
 
-    } else if (tipo === "especial") {
+        } else if (tipo === "triste") {
 
-        mensagem.innerText =
-            "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
+            mensagem.innerText =
+                "Se você estiver triste, lembra que você não precisa enfrentar tudo sozinha. Espero que esse pequeno cantinho consiga pelo menos colocar um sorriso no seu rosto. ❤️";
 
-    } else if (tipo === "oracao") {
+        } else if (tipo === "sorriso") {
 
-        mensagem.innerText =
-            "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
-    }
+            mensagem.innerText =
+                "POR QUE VOCÊ CLICOU? KKKKKKK 😂😂😂 Agora você tem que sorrir. Essa foi a regra.";
 
-    animarMensagem();
+        } else if (tipo === "especial") {
 
-    criarCoracoes(10);
+            mensagem.innerText =
+                "Uma coisa que eu gosto muito em você é o jeito que você consegue tornar nossas conversas especiais, mesmo estando tão longe. ❤️";
+
+        } else if (tipo === "oracao") {
+
+            mensagem.innerText =
+                "Que Jesus cuide de nós, da nossa caminhada e principalmente de você. Que Nossa Senhora te cubra com seu manto e te proteja sempre. 🙏❤️";
+        }
+
+        mensagem.style.opacity = "1";
+
+        animarMensagem();
+
+        criarCoracoes(10);
+
+        tempoMensagem = setTimeout(function () {
+
+            mensagem.style.opacity = "0";
+
+        }, 6000);
+
+    }, 300);
 }
 
 
@@ -77,12 +102,16 @@ function animarMensagem() {
 
 
 /* =========================
-   MOTIVOS PARA GOSTAR
+   MOTIVOS
 ========================= */
 
 function motivos() {
 
     const mensagem = document.getElementById("mensagem");
+
+    clearTimeout(tempoMensagem);
+
+    mensagem.style.opacity = "1";
 
     const motivos = [
         "Seu jeito de ser. ❤️",
@@ -101,6 +130,11 @@ function motivos() {
     function mostrarMotivo() {
 
         if (indice >= motivos.length) {
+
+            tempoMensagem = setTimeout(function () {
+                mensagem.style.opacity = "0";
+            }, 3500);
+
             return;
         }
 
@@ -115,9 +149,7 @@ function motivos() {
 
         indice++;
 
-        if (indice < motivos.length) {
-            setTimeout(mostrarMotivo, 1300);
-        }
+        setTimeout(mostrarMotivo, 1500);
     }
 
     mostrarMotivo();
@@ -144,13 +176,12 @@ function jardimTulipas() {
         block: "center"
     });
 
-    const quantidade = 12;
-
-    for (let i = 0; i < quantidade; i++) {
+    for (let i = 0; i < 12; i++) {
 
         setTimeout(function () {
 
-            const tulipa = document.createElement("div");
+            const tulipa =
+                document.createElement("div");
 
             tulipa.className = "tulipa";
 
@@ -182,14 +213,24 @@ function abraco() {
 
     const mensagem = document.getElementById("mensagem");
 
+    clearTimeout(tempoMensagem);
+
     mensagem.innerHTML =
         "<div class='animacao-abraco'>🫂</div>" +
         "<strong>Considera esse um abraço meu.</strong><br><br>" +
         "Já que a distância não deixa eu te dar um de verdade agora... ❤️";
 
+    mensagem.style.opacity = "1";
+
     animarMensagem();
 
     criarCoracoes(25);
+
+    tempoMensagem = setTimeout(function () {
+
+        mensagem.style.opacity = "0";
+
+    }, 7000);
 }
 
 
@@ -208,7 +249,8 @@ function ceuEstrelado() {
 
     for (let i = 0; i < 55; i++) {
 
-        const estrela = document.createElement("span");
+        const estrela =
+            document.createElement("span");
 
         estrela.className = "estrela";
 
@@ -239,8 +281,11 @@ function ceuEstrelado() {
 
 function segredo() {
 
-    const caixa = document.getElementById("segredo");
-    const texto = document.getElementById("segredoTexto");
+    const caixa =
+        document.getElementById("segredo");
+
+    const texto =
+        document.getElementById("segredoTexto");
 
     caixa.style.display = "block";
 
@@ -286,9 +331,14 @@ function segredo() {
 
 function nuncaFalei() {
 
-    const mensagem = document.getElementById("mensagem");
+    const mensagem =
+        document.getElementById("mensagem");
+
+    clearTimeout(tempoMensagem);
 
     mensagem.innerHTML = "";
+
+    mensagem.style.opacity = "1";
 
     const frases = [
         "Uma coisa que eu nunca te falei...",
@@ -303,23 +353,33 @@ function nuncaFalei() {
     function escreverFrase() {
 
         if (indice >= frases.length) {
+
+            tempoMensagem = setTimeout(function () {
+                mensagem.style.opacity = "0";
+            }, 3500);
+
             return;
         }
 
         mensagem.innerHTML =
             frases[indice];
 
-        mensagem.classList.remove("mensagemAnimada");
+        mensagem.classList.remove(
+            "mensagemAnimada"
+        );
 
         void mensagem.offsetWidth;
 
-        mensagem.classList.add("mensagemAnimada");
+        mensagem.classList.add(
+            "mensagemAnimada"
+        );
 
         indice++;
 
-        if (indice < frases.length) {
-            setTimeout(escreverFrase, 2200);
-        }
+        setTimeout(
+            escreverFrase,
+            2200
+        );
     }
 
     escreverFrase();
@@ -334,7 +394,8 @@ function nuncaFalei() {
 
 function mostrarEnvelope() {
 
-    const area = document.getElementById("area-envelope");
+    const area =
+        document.getElementById("area-envelope");
 
     area.style.display = "block";
 
@@ -349,11 +410,18 @@ function mostrarEnvelope() {
 
 function abrirCarta() {
 
-    const envelope = document.querySelector(".envelope");
-    const area = document.getElementById("area-envelope");
-    const carta = document.getElementById("carta");
+    const envelope =
+        document.querySelector(".envelope");
 
-    if (envelope.classList.contains("aberto")) {
+    const area =
+        document.getElementById("area-envelope");
+
+    const carta =
+        document.getElementById("carta");
+
+    if (
+        envelope.classList.contains("aberto")
+    ) {
         return;
     }
 
@@ -384,8 +452,11 @@ function abrirCarta() {
 
 function surpresa() {
 
-    const elemento = document.getElementById("surpresa");
-    const texto = document.getElementById("surpresaTexto");
+    const elemento =
+        document.getElementById("surpresa");
+
+    const texto =
+        document.getElementById("surpresaTexto");
 
     elemento.style.display = "block";
 
@@ -454,14 +525,16 @@ function criarCoracoes(quantidade) {
 
     for (let i = 0; i < quantidade; i++) {
 
-        const coracao = document.createElement("div");
+        const coracao =
+            document.createElement("div");
 
         coracao.className = "coracao";
 
         coracao.innerText =
             simbolos[
                 Math.floor(
-                    Math.random() * simbolos.length
+                    Math.random() *
+                    simbolos.length
                 )
             ];
 
@@ -477,7 +550,9 @@ function criarCoracoes(quantidade) {
         coracao.style.animationDelay =
             (Math.random() * 0.8) + "s";
 
-        document.body.appendChild(coracao);
+        document.body.appendChild(
+            coracao
+        );
 
         setTimeout(function () {
 
@@ -494,10 +569,14 @@ function criarCoracoes(quantidade) {
 
 function modoNoite() {
 
-    document.body.classList.toggle("modo-noite");
+    document.body.classList.toggle(
+        "modo-noite"
+    );
 
     const botao =
-        document.querySelector(".botao-noite");
+        document.querySelector(
+            ".botao-noite"
+        );
 
     if (
         document.body.classList.contains(
@@ -518,27 +597,32 @@ function modoNoite() {
    BOAS-VINDAS
 ========================= */
 
-window.addEventListener("load", function () {
-
-    setTimeout(function () {
-
-        const mensagem =
-            document.createElement("div");
-
-        mensagem.className =
-            "mensagem-boas-vindas";
-
-        mensagem.innerHTML =
-            "Antes de clicar em qualquer coisa...<br>" +
-            "só queria que você soubesse que eu fiz isso pensando em você. ❤️";
-
-        document.body.appendChild(mensagem);
+window.addEventListener(
+    "load",
+    function () {
 
         setTimeout(function () {
 
-            mensagem.remove();
+            const mensagem =
+                document.createElement("div");
 
-        }, 5200);
+            mensagem.className =
+                "mensagem-boas-vindas";
 
-    }, 900);
-});
+            mensagem.innerHTML =
+                "Antes de clicar em qualquer coisa...<br>" +
+                "só queria que você soubesse que eu fiz isso pensando em você. ❤️";
+
+            document.body.appendChild(
+                mensagem
+            );
+
+            setTimeout(function () {
+
+                mensagem.remove();
+
+            }, 5200);
+
+        }, 900);
+    }
+);
