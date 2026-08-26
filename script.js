@@ -851,3 +851,172 @@ document.addEventListener(
 
     }
 );
+/* =====================================================
+   🎵 SISTEMA DE MÚSICA — VERSÃO FINAL
+===================================================== */
+
+(function () {
+
+    const musica = document.getElementById("musica");
+    let botao = document.getElementById("botaoMusica");
+
+    /* Se o botão não existir, cria automaticamente */
+    if (!botao) {
+
+        botao = document.createElement("button");
+
+        botao.id = "botaoMusica";
+
+        botao.className = "botao-musica";
+
+        botao.innerText = "🎵 Uma música para você";
+
+        document.body.appendChild(botao);
+    }
+
+    /* Garante o caminho correto da música */
+    if (musica) {
+
+        musica.src = "musica/apocalypse.mp3";
+
+        musica.preload = "auto";
+
+        musica.volume = 0.6;
+    }
+
+    /* Aparência do botão */
+    botao.style.position = "fixed";
+    botao.style.left = "20px";
+    botao.style.bottom = "20px";
+
+    botao.style.zIndex = "9999";
+
+    botao.style.padding = "14px 22px";
+
+    botao.style.border = "1px solid rgba(255,255,255,0.30)";
+
+    botao.style.borderRadius = "30px";
+
+    botao.style.background = "rgba(255,255,255,0.15)";
+
+    botao.style.color = "white";
+
+    botao.style.fontSize = "15px";
+
+    botao.style.fontWeight = "bold";
+
+    botao.style.cursor = "pointer";
+
+    botao.style.backdropFilter = "blur(15px)";
+
+    botao.style.webkitBackdropFilter = "blur(15px)";
+
+    botao.style.boxShadow =
+        "0 10px 30px rgba(0,0,0,0.30)";
+
+    botao.style.transition =
+        "transform 0.3s ease, background 0.3s ease";
+
+    /* Clique */
+    botao.onclick = async function () {
+
+        if (!musica) {
+
+            botao.innerText =
+                "❌ Música não encontrada";
+
+            return;
+        }
+
+        try {
+
+            if (musica.paused) {
+
+                await musica.play();
+
+                botao.innerText =
+                    "⏸️ Pausar música";
+
+                botao.style.background =
+                    "rgba(255,255,255,0.25)";
+
+            } else {
+
+                musica.pause();
+
+                botao.innerText =
+                    "🎵 Continuar música";
+
+                botao.style.background =
+                    "rgba(255,255,255,0.15)";
+            }
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao tocar música:",
+                erro
+            );
+
+            botao.innerText =
+                "❌ Não foi possível tocar";
+
+            setTimeout(function () {
+
+                botao.innerText =
+                    "🎵 Uma música para você";
+
+            }, 2500);
+        }
+    };
+
+    /* Quando a música terminar */
+    musica.addEventListener(
+        "ended",
+        function () {
+
+            botao.innerText =
+                "🎵 Ouvir novamente";
+
+            botao.style.background =
+                "rgba(255,255,255,0.15)";
+        }
+    );
+
+    /* Celular */
+    function ajustarBotao() {
+
+        if (window.innerWidth <= 600) {
+
+            botao.style.left = "15px";
+
+            botao.style.bottom = "15px";
+
+            botao.style.padding =
+                "12px 16px";
+
+            botao.style.fontSize =
+                "14px";
+
+        } else {
+
+            botao.style.left = "20px";
+
+            botao.style.bottom = "20px";
+
+            botao.style.padding =
+                "14px 22px";
+
+            botao.style.fontSize =
+                "15px";
+        }
+    }
+
+    ajustarBotao();
+
+    window.addEventListener(
+        "resize",
+        ajustarBotao
+    );
+
+})();
