@@ -754,6 +754,8 @@ window.addEventListener(
         }, 900);
     }
 );
+
+
 /* =========================
    MÚSICA
 ========================= */
@@ -766,18 +768,86 @@ function controlarMusica() {
     const botao =
         document.getElementById("botaoMusica");
 
+    if (!musica || !botao) {
+        return;
+    }
+
     if (musica.paused) {
 
-        musica.play();
+        const tentativa =
+            musica.play();
 
-        botao.innerText =
-            "⏸️ Pausar música";
+        if (tentativa !== undefined) {
+
+            tentativa
+                .then(function () {
+
+                    botao.innerText =
+                        "⏸️ Pausar música";
+
+                    botao.classList.add(
+                        "tocando"
+                    );
+
+                })
+                .catch(function () {
+
+                    botao.innerText =
+                        "🎵 Toque novamente";
+
+                    botao.classList.remove(
+                        "tocando"
+                    );
+
+                });
+
+        }
 
     } else {
 
         musica.pause();
 
         botao.innerText =
-            "🎵 Continuar música";
+            "🎵 Uma música para você";
+
+        botao.classList.remove(
+            "tocando"
+        );
     }
 }
+
+
+/* =========================
+   QUANDO A MÚSICA TERMINAR
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const musica =
+            document.getElementById("musica");
+
+        const botao =
+            document.getElementById("botaoMusica");
+
+        if (!musica || !botao) {
+            return;
+        }
+
+        musica.addEventListener(
+            "ended",
+            function () {
+
+                botao.innerText =
+                    "🎵 Uma música para você";
+
+                botao.classList.remove(
+                    "tocando"
+                );
+
+            }
+        );
+
+    }
+);
