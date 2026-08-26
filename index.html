@@ -13,6 +13,7 @@
 <body>
 
     <!-- TELA DE ENTRADA -->
+
     <div id="telaEntrada" class="tela-entrada">
 
         <div class="entrada-conteudo">
@@ -55,64 +56,164 @@
         </p>
 
 
-        <!-- BOTÕES ANTIGOS -->
+        <!-- CATEGORIAS -->
 
-        <div class="botoes">
-
-            <button onclick="mostrar('saudade')">
-                🫂 Estou com saudade
-            </button>
-
-            <button onclick="mostrar('triste')">
-                😔 Estou triste
-            </button>
-
-            <button onclick="mostrar('sorriso')">
-                😂 Me faça sorrir
-            </button>
-
-            <button onclick="mostrar('especial')">
-                ❤️ Uma coisa sobre você
-            </button>
-
-            <button onclick="mostrar('oracao')">
-                🙏 Nosso momento com Deus
-            </button>
-
-            <button onclick="mostrarEnvelope()">
-                💌 Abrir minha carta
-            </button>
-
-            <button onclick="surpresa()">
-                🎁 NÃO clique aqui
-            </button>
+        <div class="categorias">
 
 
-            <!-- NOVOS -->
+            <!-- CATEGORIA 1 -->
 
-            <button onclick="motivos()">
-                💖 Motivos para gostar de você
-            </button>
+            <div class="categoria">
 
-            <button onclick="jardimTulipas()">
-                🌷 Faça florescer
-            </button>
+                <button
+                    class="botao-categoria"
+                    onclick="abrirCategoria('falar')">
 
-            <button onclick="abraco()">
-                🫂 Preciso de um abraço
-            </button>
+                    💖
+                    <span>
+                        Quero falar com você
+                    </span>
 
-            <button onclick="ceuEstrelado()">
-                🌌 Olhe para o céu
-            </button>
+                    <small>♡</small>
 
-            <button onclick="segredo()">
-                🔐 Tem um segredo aqui...
-            </button>
+                </button>
 
-            <button onclick="nuncaFalei()">
-                💭 Uma coisa que eu nunca te falei...
-            </button>
+
+                <div
+                    id="falar"
+                    class="opcoes-categoria">
+
+                    <button onclick="mostrar('saudade')">
+                        🫂 Estou com saudade
+                    </button>
+
+                    <button onclick="mostrar('triste')">
+                        😔 Estou triste
+                    </button>
+
+                    <button onclick="mostrar('sorriso')">
+                        😂 Me faça sorrir
+                    </button>
+
+                    <button onclick="mostrar('especial')">
+                        ❤️ Uma coisa sobre você
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORIA 2 -->
+
+            <div class="categoria">
+
+                <button
+                    class="botao-categoria"
+                    onclick="abrirCategoria('algo')">
+
+                    💌
+                    <span>
+                        Tenho algo para você
+                    </span>
+
+                    <small>♡</small>
+
+                </button>
+
+
+                <div
+                    id="algo"
+                    class="opcoes-categoria">
+
+                    <button onclick="mostrarEnvelope()">
+                        💌 Abrir minha carta
+                    </button>
+
+                    <button onclick="segredo()">
+                        🔐 Tem um segredo aqui...
+                    </button>
+
+                    <button onclick="nuncaFalei()">
+                        💭 Uma coisa que eu nunca te falei...
+                    </button>
+
+                    <button onclick="motivos()">
+                        💖 Motivos para gostar de você
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORIA 3 -->
+
+            <div class="categoria">
+
+                <button
+                    class="botao-categoria"
+                    onclick="abrirCategoria('mostrar')">
+
+                    🌷
+                    <span>
+                        Quero te mostrar uma coisa
+                    </span>
+
+                    <small>♡</small>
+
+                </button>
+
+
+                <div
+                    id="mostrar"
+                    class="opcoes-categoria">
+
+                    <button onclick="jardimTulipas()">
+                        🌷 Faça florescer
+                    </button>
+
+                    <button onclick="abraco()">
+                        🫂 Preciso de um abraço
+                    </button>
+
+                    <button onclick="ceuEstrelado()">
+                        🌌 Olhe para o céu
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEUS -->
+
+            <div class="categoria categoria-deus">
+
+                <button
+                    class="botao-especial"
+                    onclick="mostrar('oracao')">
+
+                    🙏 Nosso momento com Deus
+
+                </button>
+
+            </div>
+
+
+            <!-- SURPRESA -->
+
+            <div class="categoria surpresa-botao">
+
+                <button
+                    class="botao-surpresa"
+                    onclick="surpresa()">
+
+                    🎁 NÃO clique aqui
+
+                </button>
+
+            </div>
 
         </div>
 
@@ -120,26 +221,35 @@
         <!-- MENSAGEM -->
 
         <div id="mensagem" class="mensagem">
+
             Escolha alguma coisa acima... 👀❤️
+
         </div>
 
 
         <!-- JARDIM -->
 
-        <div id="jardim" class="jardim">
+        <div
+            id="jardim"
+            class="jardim">
 
             <div class="jardim-titulo">
                 🌷 Um pequeno jardim para você 🌷
             </div>
 
-            <div id="flores" class="flores"></div>
+            <div
+                id="flores"
+                class="flores">
+            </div>
 
         </div>
 
 
         <!-- ENVELOPE -->
 
-        <div id="area-envelope" class="area-envelope">
+        <div
+            id="area-envelope"
+            class="area-envelope">
 
             <p class="instrucao-envelope">
                 Tem uma carta aqui para você... 💌
@@ -168,7 +278,9 @@
 
         <!-- CARTA -->
 
-        <div id="carta" class="carta">
+        <div
+            id="carta"
+            class="carta">
 
             <h2>💌 Para você, Mari</h2>
 
@@ -225,9 +337,11 @@
             <div id="estrelas"></div>
 
             <div class="mensagem-ceu">
+
                 Às vezes eu olho para o céu<br>
                 e penso que, mesmo tão longe,<br>
                 estamos olhando para o mesmo céu. ❤️
+
             </div>
 
         </div>
@@ -242,7 +356,6 @@
             <div id="segredoTexto"></div>
 
         </div>
-
 
     </main>
 
