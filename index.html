@@ -38,27 +38,20 @@
 
 
     <!-- MÚSICA -->
+<button
+    id="botaoMusica"
+    class="botao-musica"
+    onclick="controlarMusica()">
 
-    <button
-        id="botaoMusica"
-        class="botao-musica"
-        onclick="controlarMusica()">
+    🎵 Uma música para você
 
-        🎵 Uma música para você
+</button>
 
-    </button>
-
-    <audio
-        id="musica"
-        preload="auto">
-
-        <source
-            src="./musica/apocalypse.mp3"
-            type="audio/mpeg">
-
-    </audio>
-
-
+<audio id="musica">
+    <source
+        src="musica/apocalypse.mp3"
+        type="audio/mpeg">
+</audio>
     <!-- MODO NOITE -->
 
     <button
