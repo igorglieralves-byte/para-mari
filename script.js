@@ -1,4 +1,28 @@
 /* =========================
+   CATEGORIAS
+========================= */
+
+function abrirCategoria(id) {
+
+    const categoria = document.getElementById(id);
+
+    const todas = document.querySelectorAll(
+        ".opcoes-categoria"
+    );
+
+    todas.forEach(function (item) {
+
+        if (item.id !== id) {
+            item.classList.remove("aberta");
+        }
+
+    });
+
+    categoria.classList.toggle("aberta");
+}
+
+
+/* =========================
    CONTROLE DA MENSAGEM
 ========================= */
 
@@ -10,14 +34,18 @@ let tempoMensagem;
 ========================= */
 
 function entrarNoSite() {
-    const tela = document.getElementById("telaEntrada");
+
+    const tela =
+        document.getElementById("telaEntrada");
 
     tela.classList.add("saindo");
 
     criarCoracoes(12);
 
     setTimeout(function () {
+
         tela.style.display = "none";
+
     }, 800);
 }
 
@@ -28,11 +56,14 @@ function entrarNoSite() {
 
 function mostrar(tipo) {
 
-    const mensagem = document.getElementById("mensagem");
+    const mensagem =
+        document.getElementById("mensagem");
 
     clearTimeout(tempoMensagem);
 
-    mensagem.classList.remove("mensagemAnimada");
+    mensagem.classList.remove(
+        "mensagemAnimada"
+    );
 
     mensagem.style.opacity = "0";
 
@@ -70,11 +101,12 @@ function mostrar(tipo) {
 
         criarCoracoes(10);
 
-        tempoMensagem = setTimeout(function () {
+        tempoMensagem =
+            setTimeout(function () {
 
-            mensagem.style.opacity = "0";
+                mensagem.style.opacity = "0";
 
-        }, 6000);
+            }, 6000);
 
     }, 300);
 }
@@ -86,13 +118,18 @@ function mostrar(tipo) {
 
 function animarMensagem() {
 
-    const mensagem = document.getElementById("mensagem");
+    const mensagem =
+        document.getElementById("mensagem");
 
-    mensagem.classList.remove("mensagemAnimada");
+    mensagem.classList.remove(
+        "mensagemAnimada"
+    );
 
     void mensagem.offsetWidth;
 
-    mensagem.classList.add("mensagemAnimada");
+    mensagem.classList.add(
+        "mensagemAnimada"
+    );
 
     mensagem.scrollIntoView({
         behavior: "smooth",
@@ -107,20 +144,29 @@ function animarMensagem() {
 
 function motivos() {
 
-    const mensagem = document.getElementById("mensagem");
+    const mensagem =
+        document.getElementById("mensagem");
 
     clearTimeout(tempoMensagem);
 
     mensagem.style.opacity = "1";
 
     const motivos = [
+
         "Seu jeito de ser. ❤️",
+
         "Seu sorriso. 🥹",
+
         "A forma como você consegue deixar uma conversa simples especial.",
+
         "Seu carinho. 💕",
+
         "A maneira como você se importa com as pessoas.",
+
         "Seu jeitinho que é só seu. ❤️",
+
         "E principalmente... você ser você mesma. 🌷"
+
     ];
 
     mensagem.innerHTML = "";
@@ -131,9 +177,12 @@ function motivos() {
 
         if (indice >= motivos.length) {
 
-            tempoMensagem = setTimeout(function () {
-                mensagem.style.opacity = "0";
-            }, 3500);
+            tempoMensagem =
+                setTimeout(function () {
+
+                    mensagem.style.opacity = "0";
+
+                }, 3500);
 
             return;
         }
@@ -141,15 +190,22 @@ function motivos() {
         mensagem.innerHTML =
             motivos[indice];
 
-        mensagem.classList.remove("mensagemAnimada");
+        mensagem.classList.remove(
+            "mensagemAnimada"
+        );
 
         void mensagem.offsetWidth;
 
-        mensagem.classList.add("mensagemAnimada");
+        mensagem.classList.add(
+            "mensagemAnimada"
+        );
 
         indice++;
 
-        setTimeout(mostrarMotivo, 1500);
+        setTimeout(
+            mostrarMotivo,
+            1500
+        );
     }
 
     mostrarMotivo();
@@ -164,8 +220,11 @@ function motivos() {
 
 function jardimTulipas() {
 
-    const jardim = document.getElementById("jardim");
-    const flores = document.getElementById("flores");
+    const jardim =
+        document.getElementById("jardim");
+
+    const flores =
+        document.getElementById("flores");
 
     jardim.style.display = "block";
 
@@ -176,14 +235,19 @@ function jardimTulipas() {
         block: "center"
     });
 
-    for (let i = 0; i < 12; i++) {
+    for (
+        let i = 0;
+        i < 12;
+        i++
+    ) {
 
         setTimeout(function () {
 
             const tulipa =
                 document.createElement("div");
 
-            tulipa.className = "tulipa";
+            tulipa.className =
+                "tulipa";
 
             tulipa.innerHTML = `
                 <div class="petalas">🌷</div>
@@ -196,7 +260,9 @@ function jardimTulipas() {
             tulipa.style.animationDelay =
                 (Math.random() * 0.5) + "s";
 
-            flores.appendChild(tulipa);
+            flores.appendChild(
+                tulipa
+            );
 
         }, i * 180);
     }
@@ -211,7 +277,8 @@ function jardimTulipas() {
 
 function abraco() {
 
-    const mensagem = document.getElementById("mensagem");
+    const mensagem =
+        document.getElementById("mensagem");
 
     clearTimeout(tempoMensagem);
 
@@ -226,11 +293,12 @@ function abraco() {
 
     criarCoracoes(25);
 
-    tempoMensagem = setTimeout(function () {
+    tempoMensagem =
+        setTimeout(function () {
 
-        mensagem.style.opacity = "0";
+            mensagem.style.opacity = "0";
 
-    }, 7000);
+        }, 7000);
 }
 
 
@@ -240,21 +308,30 @@ function abraco() {
 
 function ceuEstrelado() {
 
-    const ceu = document.getElementById("ceu");
-    const estrelas = document.getElementById("estrelas");
+    const ceu =
+        document.getElementById("ceu");
+
+    const estrelas =
+        document.getElementById("estrelas");
 
     ceu.style.display = "flex";
 
     estrelas.innerHTML = "";
 
-    for (let i = 0; i < 55; i++) {
+    for (
+        let i = 0;
+        i < 55;
+        i++
+    ) {
 
         const estrela =
             document.createElement("span");
 
-        estrela.className = "estrela";
+        estrela.className =
+            "estrela";
 
-        estrela.innerHTML = "✦";
+        estrela.innerHTML =
+            "✦";
 
         estrela.style.left =
             Math.random() * 100 + "%";
@@ -265,7 +342,9 @@ function ceuEstrelado() {
         estrela.style.animationDelay =
             Math.random() * 3 + "s";
 
-        estrelas.appendChild(estrela);
+        estrelas.appendChild(
+            estrela
+        );
     }
 
     ceu.scrollIntoView({
@@ -341,11 +420,17 @@ function nuncaFalei() {
     mensagem.style.opacity = "1";
 
     const frases = [
+
         "Uma coisa que eu nunca te falei...",
+
         "Eu comecei esse site pensando em fazer você sorrir.",
+
         "Mas enquanto eu fazia...",
+
         "eu percebi que estava sorrindo também.",
+
         "E acho que isso diz bastante coisa. ❤️"
+
     ];
 
     let indice = 0;
@@ -354,9 +439,12 @@ function nuncaFalei() {
 
         if (indice >= frases.length) {
 
-            tempoMensagem = setTimeout(function () {
-                mensagem.style.opacity = "0";
-            }, 3500);
+            tempoMensagem =
+                setTimeout(function () {
+
+                    mensagem.style.opacity = "0";
+
+                }, 3500);
 
             return;
         }
@@ -395,7 +483,9 @@ function nuncaFalei() {
 function mostrarEnvelope() {
 
     const area =
-        document.getElementById("area-envelope");
+        document.getElementById(
+            "area-envelope"
+        );
 
     area.style.display = "block";
 
@@ -411,29 +501,41 @@ function mostrarEnvelope() {
 function abrirCarta() {
 
     const envelope =
-        document.querySelector(".envelope");
+        document.querySelector(
+            ".envelope"
+        );
 
     const area =
-        document.getElementById("area-envelope");
+        document.getElementById(
+            "area-envelope"
+        );
 
     const carta =
-        document.getElementById("carta");
+        document.getElementById(
+            "carta"
+        );
 
     if (
-        envelope.classList.contains("aberto")
+        envelope.classList.contains(
+            "aberto"
+        )
     ) {
         return;
     }
 
-    envelope.classList.add("aberto");
+    envelope.classList.add(
+        "aberto"
+    );
 
     criarCoracoes(15);
 
     setTimeout(function () {
 
-        area.style.display = "none";
+        area.style.display =
+            "none";
 
-        carta.style.display = "block";
+        carta.style.display =
+            "block";
 
         carta.scrollIntoView({
             behavior: "smooth",
@@ -453,12 +555,17 @@ function abrirCarta() {
 function surpresa() {
 
     const elemento =
-        document.getElementById("surpresa");
+        document.getElementById(
+            "surpresa"
+        );
 
     const texto =
-        document.getElementById("surpresaTexto");
+        document.getElementById(
+            "surpresaTexto"
+        );
 
-    elemento.style.display = "block";
+    elemento.style.display =
+        "block";
 
     texto.innerHTML = "";
 
@@ -513,6 +620,7 @@ function surpresa() {
 function criarCoracoes(quantidade) {
 
     const simbolos = [
+
         "❤️",
         "💕",
         "💗",
@@ -521,14 +629,22 @@ function criarCoracoes(quantidade) {
         "💞",
         "✨",
         "💫"
+
     ];
 
-    for (let i = 0; i < quantidade; i++) {
+    for (
+        let i = 0;
+        i < quantidade;
+        i++
+    ) {
 
         const coracao =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        coracao.className = "coracao";
+        coracao.className =
+            "coracao";
 
         coracao.innerText =
             simbolos[
@@ -542,13 +658,21 @@ function criarCoracoes(quantidade) {
             Math.random() * 100 + "vw";
 
         coracao.style.fontSize =
-            (18 + Math.random() * 25) + "px";
+            (
+                18 +
+                Math.random() * 25
+            ) + "px";
 
         coracao.style.animationDuration =
-            (3 + Math.random() * 4) + "s";
+            (
+                3 +
+                Math.random() * 4
+            ) + "s";
 
         coracao.style.animationDelay =
-            (Math.random() * 0.8) + "s";
+            (
+                Math.random() * 0.8
+            ) + "s";
 
         document.body.appendChild(
             coracao
@@ -584,11 +708,13 @@ function modoNoite() {
         )
     ) {
 
-        botao.innerText = "☀️";
+        botao.innerText =
+            "☀️";
 
     } else {
 
-        botao.innerText = "🌙";
+        botao.innerText =
+            "🌙";
     }
 }
 
@@ -604,7 +730,9 @@ window.addEventListener(
         setTimeout(function () {
 
             const mensagem =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             mensagem.className =
                 "mensagem-boas-vindas";
