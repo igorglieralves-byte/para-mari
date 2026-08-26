@@ -36,29 +36,38 @@
 
     </div>
 
-<!-- BOTÃO DA MÚSICA -->
-    
-<button
-    id="botaoMusica"
-    class="botao-musica"
-    onclick="controlarMusica()">
 
-    🎵 Uma música para você
+    <!-- MÚSICA -->
 
-</button>
+    <button
+        id="botaoMusica"
+        class="botao-musica"
+        onclick="controlarMusica()">
 
-<audio id="musica">
-    <source
-        src="musica/apocalypse.mp3"
-        type="audio/mpeg">
-</audio>
+        🎵 Uma música para você
+
+    </button>
+
+    <audio
+        id="musica"
+        preload="auto">
+
+        <source
+            src="./musica/apocalypse.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
     <!-- MODO NOITE -->
 
     <button
         class="botao-noite"
         onclick="modoNoite()"
         aria-label="Mudar modo">
+
         🌙
+
     </button>
 
 
@@ -85,6 +94,7 @@
                     onclick="abrirCategoria('falar')">
 
                     💖
+
                     <span>
                         Quero falar com você
                     </span>
@@ -128,6 +138,7 @@
                     onclick="abrirCategoria('algo')">
 
                     💌
+
                     <span>
                         Tenho algo para você
                     </span>
@@ -171,6 +182,7 @@
                     onclick="abrirCategoria('mostrar')">
 
                     🌷
+
                     <span>
                         Quero te mostrar uma coisa
                     </span>
@@ -235,7 +247,9 @@
 
         <!-- MENSAGEM -->
 
-        <div id="mensagem" class="mensagem">
+        <div
+            id="mensagem"
+            class="mensagem">
 
             Escolha alguma coisa acima... 👀❤️
 
