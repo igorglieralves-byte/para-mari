@@ -36,7 +36,6 @@ body.modo-noite {
 }
 
 @keyframes fundoVivo {
-
     from {
         background-position: 0% 0%;
     }
@@ -102,7 +101,6 @@ body.modo-noite {
 }
 
 @keyframes entradaSubir {
-
     from {
         opacity: 0;
 
@@ -129,7 +127,6 @@ body.modo-noite {
 }
 
 @keyframes coracaoPulsar {
-
     0%,
     100% {
         transform: scale(1);
@@ -170,7 +167,8 @@ body.modo-noite {
 
     cursor: pointer;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
 
     transition: 0.3s;
 }
@@ -185,7 +183,7 @@ body.modo-noite {
 
 
 /* =========================
-   BOTÃO NOITE
+   BOTÃO MODO NOITE
 ========================= */
 
 .botao-noite {
@@ -214,16 +212,19 @@ body.modo-noite {
 
     z-index: 1000;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 .botao-noite:hover {
-    transform: rotate(20deg) scale(1.1);
+    transform:
+        rotate(20deg)
+        scale(1.1);
 }
 
 
 /* =========================
-   CONTEÚDO
+   CONTAINER
 ========================= */
 
 .container {
@@ -237,6 +238,11 @@ body.modo-noite {
 
     padding: 70px 20px 60px;
 }
+
+
+/* =========================
+   TÍTULO
+========================= */
 
 h1 {
     font-size: 55px;
@@ -253,7 +259,6 @@ h1 {
 }
 
 @keyframes tituloEntrada {
-
     from {
         opacity: 0;
 
@@ -272,7 +277,6 @@ h1 {
 }
 
 @keyframes tituloRespira {
-
     0%,
     100% {
         transform: scale(1);
@@ -324,7 +328,8 @@ h1 {
 
     color: white;
 
-    background: rgba(255, 255, 255, 0.12);
+    background:
+        rgba(255, 255, 255, 0.12);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -340,7 +345,9 @@ h1 {
 }
 
 .botoes button:hover {
-    transform: translateY(-8px) scale(1.04);
+    transform:
+        translateY(-8px)
+        scale(1.04);
 
     box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.38),
@@ -353,7 +360,13 @@ h1 {
 
 .botoes button:nth-child(5),
 .botoes button:nth-child(6),
-.botoes button:nth-child(7) {
+.botoes button:nth-child(7),
+.botoes button:nth-child(8),
+.botoes button:nth-child(9),
+.botoes button:nth-child(10),
+.botoes button:nth-child(11),
+.botoes button:nth-child(12),
+.botoes button:nth-child(13) {
     grid-column: 1 / 3;
 
     justify-self: center;
@@ -373,6 +386,10 @@ h1 {
     max-width: 350px;
 
     opacity: 0.8;
+}
+
+.botoes button:nth-child(n + 8) {
+    max-width: 450px;
 }
 
 
@@ -395,23 +412,28 @@ h1 {
 
     line-height: 1.7;
 
-    background: rgba(255, 255, 255, 0.12);
+    background:
+        rgba(255, 255, 255, 0.12);
 
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    border:
+        1px solid rgba(255, 255, 255, 0.22);
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease;
 }
 
 .mensagemAnimada {
-    animation: mensagemEntrando 0.5s ease;
+    animation:
+        mensagemEntrando 0.5s ease;
 }
 
 @keyframes mensagemEntrando {
-
     from {
         opacity: 0;
 
@@ -426,6 +448,460 @@ h1 {
         transform:
             translateY(0)
             scale(1);
+    }
+}
+
+
+/* =========================
+   MOTIVOS
+========================= */
+
+.mensagem strong {
+    font-size: 22px;
+}
+
+.mensagemAnimada strong {
+    animation:
+        aparecerSuave 0.8s ease;
+}
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   JARDIM DE TULIPAS
+========================= */
+
+.jardim {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 330px;
+
+    margin: 45px auto;
+
+    padding: 35px 20px 20px;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(30, 15, 60, 0.35),
+            rgba(30, 80, 45, 0.45)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3);
+
+    animation:
+        jardimEntrada 0.8s ease;
+}
+
+@keyframes jardimEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.jardim::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(20, 70, 35, 0.8),
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+.jardim-titulo {
+    position: relative;
+
+    z-index: 10;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.flores {
+    position: relative;
+
+    width: 100%;
+
+    height: 240px;
+}
+
+.tulipa {
+    position: absolute;
+
+    bottom: 10px;
+
+    width: 55px;
+    height: 210px;
+
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+
+    animation:
+        tulipaNascendo 0.8s ease forwards;
+
+    transform-origin: bottom;
+}
+
+.petalas {
+    position: relative;
+
+    z-index: 3;
+
+    font-size: 50px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 5px 5px rgba(0, 0, 0, 0.2)
+        );
+
+    animation:
+        tulipaBalançando 3s ease-in-out infinite;
+}
+
+.caule {
+    width: 7px;
+
+    height: 130px;
+
+    margin-top: -5px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #2f8f45,
+            #62b95e,
+            #23743a
+        );
+
+    position: relative;
+}
+
+.caule::before,
+.caule::after {
+    content: "";
+
+    position: absolute;
+
+    width: 45px;
+    height: 18px;
+
+    background: #4fa653;
+
+    border-radius: 100% 0 100% 0;
+}
+
+.caule::before {
+    left: -40px;
+    top: 55px;
+
+    transform: rotate(-25deg);
+}
+
+.caule::after {
+    right: -40px;
+    top: 85px;
+
+    transform:
+        rotate(25deg)
+        scaleX(-1);
+}
+
+@keyframes tulipaNascendo {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(100px)
+            scale(0);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes tulipaBalançando {
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+
+/* =========================
+   ABRAÇO
+========================= */
+
+.animacao-abraco {
+    font-size: 70px;
+
+    margin-bottom: 15px;
+
+    animation:
+        abracoAnimacao 1.5s ease-in-out infinite;
+}
+
+@keyframes abracoAnimacao {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* =========================
+   CÉU ESTRELADO
+========================= */
+
+.ceu {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 420px;
+
+    margin: 45px auto;
+
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #252061,
+            #08051c 75%
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.45);
+
+    animation:
+        ceuEntrada 1s ease;
+}
+
+@keyframes ceuEntrada {
+    from {
+        opacity: 0;
+
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+#estrelas {
+    position: absolute;
+
+    inset: 0;
+}
+
+.estrela {
+    position: absolute;
+
+    color: white;
+
+    font-size:
+        calc(8px + 1vw);
+
+    opacity: 0.4;
+
+    animation:
+        estrelaPiscando 2.5s ease-in-out infinite;
+}
+
+@keyframes estrelaPiscando {
+    0%,
+    100% {
+        opacity: 0.2;
+
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.25);
+    }
+}
+
+.mensagem-ceu {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 600px;
+
+    padding: 30px;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+
+/* =========================
+   SEGREDO
+========================= */
+
+.segredo {
+    display: none;
+
+    max-width: 650px;
+
+    min-height: 180px;
+
+    margin: 45px auto;
+
+    padding: 40px 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 10, 45, 0.8),
+            rgba(90, 20, 70, 0.7)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.4);
+
+    color: white;
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    animation:
+        segredoEntrada 0.8s ease;
+}
+
+@keyframes segredoEntrada {
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85)
+            rotate(-2deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+#segredoTexto {
+    animation:
+        segredoTexto 0.7s ease;
+}
+
+@keyframes segredoTexto {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
     }
 }
 
@@ -456,7 +932,8 @@ h1 {
 
     cursor: pointer;
 
-    transition: transform 0.3s ease;
+    transition:
+        transform 0.3s ease;
 }
 
 .envelope:hover {
@@ -469,7 +946,11 @@ h1 {
     inset: 0;
 
     background:
-        linear-gradient(145deg, #ffd3e5, #f7a9c8);
+        linear-gradient(
+            145deg,
+            #ffd3e5,
+            #f7a9c8
+        );
 
     border-radius: 10px;
 
@@ -485,13 +966,19 @@ h1 {
     width: 0;
     height: 0;
 
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-top: 105px solid #e88db4;
+    border-left:
+        150px solid transparent;
+
+    border-right:
+        150px solid transparent;
+
+    border-top:
+        105px solid #e88db4;
 
     transform-origin: top;
 
-    transition: transform 0.7s ease;
+    transition:
+        transform 0.7s ease;
 
     z-index: 4;
 }
@@ -530,7 +1017,8 @@ h1 {
     top: 85px;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 52px;
     height: 52px;
@@ -552,13 +1040,15 @@ h1 {
 }
 
 .envelope.aberto .aba-envelope {
-    transform: rotateX(180deg);
+    transform:
+        rotateX(180deg);
 
     z-index: 0;
 }
 
 .envelope.aberto .papel-carta {
-    transform: translateY(-130px);
+    transform:
+        translateY(-130px);
 }
 
 .envelope.aberto .selo-envelope {
@@ -592,12 +1082,17 @@ h1 {
     color: #5a2638;
 
     background:
-        linear-gradient(135deg, #fffdfd, #fff1f7);
+        linear-gradient(
+            135deg,
+            #fffdfd,
+            #fff1f7
+        );
 
     box-shadow:
         0 25px 60px rgba(0, 0, 0, 0.4);
 
-    animation: cartaAbrindo 1s ease;
+    animation:
+        cartaAbrindo 1s ease;
 }
 
 .carta h2 {
@@ -623,7 +1118,6 @@ h1 {
 }
 
 @keyframes cartaAbrindo {
-
     from {
         opacity: 0;
 
@@ -661,9 +1155,11 @@ h1 {
 
     line-height: 1.6;
 
-    background: rgba(255, 255, 255, 0.14);
+    background:
+        rgba(255, 255, 255, 0.14);
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -671,11 +1167,11 @@ h1 {
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.3);
 
-    animation: surpresaEntrada 0.8s ease;
+    animation:
+        surpresaEntrada 0.8s ease;
 }
 
 @keyframes surpresaEntrada {
-
     from {
         opacity: 0;
 
@@ -708,7 +1204,6 @@ h1 {
 }
 
 @keyframes subir {
-
     from {
         transform:
             translateY(0)
@@ -743,9 +1238,11 @@ h1 {
 
     border-radius: 25px;
 
-    background: rgba(255, 255, 255, 0.14);
+    background:
+        rgba(255, 255, 255, 0.14);
 
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border:
+        1px solid rgba(255, 255, 255, 0.28);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -766,7 +1263,6 @@ h1 {
 }
 
 @keyframes boasVindas {
-
     0% {
         opacity: 0;
 
@@ -804,7 +1300,8 @@ h1 {
 @media (max-width: 600px) {
 
     .container {
-        padding: 60px 15px 45px;
+        padding:
+            60px 15px 45px;
     }
 
     h1 {
@@ -839,6 +1336,43 @@ h1 {
         padding: 22px;
     }
 
+    .jardim {
+        min-height: 300px;
+
+        padding:
+            30px 10px 15px;
+    }
+
+    .flores {
+        height: 220px;
+    }
+
+    .tulipa {
+        transform:
+            scale(0.75);
+
+        transform-origin:
+            bottom center;
+    }
+
+    .ceu {
+        min-height: 350px;
+    }
+
+    .mensagem-ceu {
+        font-size: 18px;
+
+        padding: 25px;
+    }
+
+    .segredo {
+        font-size: 18px;
+
+        min-height: 200px;
+
+        padding: 30px 20px;
+    }
+
     .envelope {
         transform: scale(0.85);
     }
@@ -848,7 +1382,8 @@ h1 {
     }
 
     .carta {
-        padding: 35px 23px;
+        padding:
+            35px 23px;
 
         font-size: 16px;
     }
@@ -856,7 +1391,8 @@ h1 {
     .surpresa {
         font-size: 19px;
 
-        padding: 28px 20px;
+        padding:
+            28px 20px;
     }
 
     .botao-noite {
@@ -872,11 +1408,13 @@ h1 {
 
         font-size: 16px;
 
-        padding: 17px 18px;
+        padding:
+            17px 18px;
     }
 
     .entrada-conteudo {
-        padding: 40px 22px;
+        padding:
+            40px 22px;
     }
 
     .entrada-conteudo h2 {
